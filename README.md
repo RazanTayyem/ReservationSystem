@@ -7,17 +7,17 @@ You can sign up and log in using your username and password, select the service 
 # User Stories:
 
 
-1. As a YDRC staff I can log in by the shared username and password.
+1. As a YDRC staff/admin I can log in by the shared username and password for both.
 
-2. As a YDRC staff I can see YDRC halls.
+2. As a YDRC staff/admin I can see YDRC halls.
 
-3. As a YDRC staff I can see all events that related to each hall. 
+3. As a YDRC staff/admin I can see all events that related to each hall. 
 
-4. As a YDRC staff I can book an event
+4. As a YDRC staff/admin I can book an event
 
 5. As a YDRC admin I can see and approve all pending events
 
-8. As a user / admin can log out of the account.
+8. As a user/admin can log out of the account.
 
 
 
