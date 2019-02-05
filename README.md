@@ -6,7 +6,7 @@ You can sign up and log in using your username and password, select the service 
 
 # User Stories:
 
-1- As a user/admin I want to be able to log in using the shared username and password.
+1- As a user / admin I want to be able to log in using the shared username and password.
 
 2- As a user I want be able to select any YDRC facilities.
 
