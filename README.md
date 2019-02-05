@@ -10,13 +10,13 @@ You can sign up and log in using your username and password, select the service 
 
 2- As a user I can select any YDRC halls.
 
-3- As a user I can see all pending / approved halls and available dates. 
+3- As a user I can see all the events that related to each hall. 
 
 4- As admin I can select any YDRC halls.
 
-5- As admin I can see all pending items to select and approve each of them. 
+5- As admin I can see all pending events to select and approve each of them. 
 
-6- As admin I can see all approved items and select them to see the details. 
+6- As admin I can see all approved events and select them to see the details. 
 
 7- As admin I can see all available dates and select any to reserve the hall in this date,
 also I can add all the needed details for this reservation.
