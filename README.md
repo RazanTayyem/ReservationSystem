@@ -6,22 +6,18 @@ You can sign up and log in using your username and password, select the service 
 
 # User Stories:
 
-1- As a user / admin I can log in by the shared username and password.
 
-2- As a user I can select any YDRC halls.
+1. As a YDRC staff I can log in by the shared username and password.
 
-3- As a user I can see all the events that related to each hall. 
+2. As a YDRC staff I can see YDRC halls.
 
-4- As admin I can select any YDRC halls.
+3. As a YDRC staff I can see all events that related to each hall. 
 
-5- As admin I can see all pending events to select and approve each of them. 
+4. As a YDRC staff I can book an event
 
-6- As admin I can see all approved events and select them to see the details. 
+5. As a YDRC admin I can see and approve all pending events
 
-7- As admin I can see all available dates and select any to reserve the hall in this date,
-also I can add all the needed details for this reservation.
-
-8- As a user / admin can log out of the account.
+8. As a user / admin can log out of the account.
 
 
 
