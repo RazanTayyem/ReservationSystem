@@ -17,7 +17,7 @@ You can sign up and log in using your username and password, select the service 
 
 5. As a YDRC admin I can see and approve all pending events
 
-8. As a user/admin can log out of the account.
+8. As a YDRC staff/admin can log out of the account.
 
 
 
