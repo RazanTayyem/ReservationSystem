@@ -1,9 +1,6 @@
 {
   "name": "reservationsystem",
   "version": "1.0.0",
-  "engines": {
-    "node": "8.11.4"
-  },
   "description": "A web app that enables the YDRC staff to coordinate the reservation process in their organization between all of them.",
   "main": "index.js",
   "scripts": {
