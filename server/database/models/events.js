@@ -29,10 +29,6 @@ const Event = sequelize.define('events', {
   note: {
     type: Sequelize.STRING(500),
   },
-  user_id: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-  },
   status: {
     type: Sequelize.INTEGER,
     allowNull: false,

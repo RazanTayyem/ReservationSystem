@@ -8,8 +8,5 @@ const Equipment = sequelize.define('equipment', {
   note: {
     type: Sequelize.STRING(500),
   },
-  event_id: {
-    type: Sequelize.INTEGER,
-  },
 });
 module.exports = Equipment;

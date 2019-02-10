@@ -11,8 +11,5 @@ const Coffee = sequelize.define('coffee', {
   time: {
     type: Sequelize.DATE,
   },
-  event_id: {
-    type: Sequelize.INTEGER,
-  },
 });
 module.exports = Coffee;

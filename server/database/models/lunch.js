@@ -11,8 +11,5 @@ const Lunch = sequelize.define('lunch', {
   time: {
     type: Sequelize.DATE,
   },
-  event_id: {
-    type: Sequelize.INTEGER,
-  },
 });
 module.exports = Lunch;
