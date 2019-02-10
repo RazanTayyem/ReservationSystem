@@ -3,16 +3,25 @@ const sequelize = require('./sequelize.js');
 
 const User = sequelize.define('users', {
   username: {
-    type: Sequelize.STRING(150),
+    type: Sequelize.STRING,
     allowNull: false,
+    unique: true,
   },
   password: {
-    type: Sequelize.STRING(250),
+    type: Sequelize.STRING,
     allowNull: false,
   },
   role: {
-    type: Sequelize.STRING(20),
+    type: Sequelize.STRING,
     allowNull: false,
+  },
+  createdAt: {
+    type: Sequelize.DATE(),
+    defaultValue: sequelize.literal('NOW()'),
+  },
+  updatedAt: {
+    type: Sequelize.DATE(),
+    defaultValue: sequelize.literal('NOW()'),
   },
 });
 module.exports = User;

@@ -6,7 +6,15 @@ const Equipment = sequelize.define('equipment', {
     type: Sequelize.FLOAT,
   },
   note: {
-    type: Sequelize.STRING(500),
+    type: Sequelize.TEXT,
+  },
+  createdAt: {
+    type: Sequelize.DATE(),
+    defaultValue: sequelize.literal('NOW()'),
+  },
+  updatedAt: {
+    type: Sequelize.DATE(),
+    defaultValue: sequelize.literal('NOW()'),
   },
 });
 module.exports = Equipment;
