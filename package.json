@@ -4,15 +4,13 @@
   "description": "A web app that enables the YDRC staff to coordinate the reservation process in their organization between all of them.",
   "main": "index.js",
   "scripts": {
+    "client-install": "cd client && npm install",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "client": "cd client && npm start",
-    "start": "node start ./server/server.js && npm run client",
-    "localStart": "nodemon start ./server/server.js && npm run client",
+    "client": "cd client && npm run build",
+    "start": "node ./server/server.js",
+    "localStart": "nodemon ./server/server.js",
     "build": "cd client && npm run build",
-    "dev": "cd client && npm run build && cd .. & npm run localStart",
-    "heroku-postbuild":
-      "NPM_CONFIG_PRODUCTION=false npm install --prefix client
-       && npm run build --prefix client"
+    "dev": "npm run client && npm run localStart"
   },
   "repository": {
     "type": "git",
@@ -28,7 +26,7 @@
     "express": "^4.16.4"
   },
   "devDependencies": {
-    "eslint": "^5.13.0",
+    "eslint": "^5.6.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
