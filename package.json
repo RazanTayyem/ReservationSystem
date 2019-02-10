@@ -6,9 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "cd client && npm start",
-    "start": "nodemon start ./server/server.js && npm run client",
+    "start": "node start ./server/server.js && npm run client",
+    "localStart": "nodemon start ./server/server.js && npm run client",
     "build": "cd client && npm run build",
-    "dev": "cd client && npm run build && cd .. & npm start"
+    "dev": "cd client && npm run build && cd .. & npm run localStart"
   },
   "repository": {
     "type": "git",
@@ -21,7 +22,9 @@
   },
   "homepage": "https://github.com/FACK1/ReservationSystem#readme",
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
     "nodemon": "^1.18.10"
   }
 }
