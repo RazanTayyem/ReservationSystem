@@ -9,7 +9,10 @@
     "start": "node start ./server/server.js && npm run client",
     "localStart": "nodemon start ./server/server.js && npm run client",
     "build": "cd client && npm run build",
-    "dev": "cd client && npm run build && cd .. & npm run localStart"
+    "dev": "cd client && npm run build && cd .. & npm run localStart",
+    "heroku-postbuild":
+      "NPM_CONFIG_PRODUCTION=false npm install --prefix client
+       && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
