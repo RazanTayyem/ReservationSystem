@@ -10,7 +10,8 @@
     "start": "node ./server/server.js",
     "localStart": "nodemon ./server/server.js",
     "build": "cd client && npm run build",
-    "dev": "npm run client && npm run localStart"
+    "dev": "npm run client && npm run localStart",
+    "heroku-postbuild":"cd client && npm install && npm run build"
   },
   "repository": {
     "type": "git",
