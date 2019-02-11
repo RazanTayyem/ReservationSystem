@@ -5,11 +5,10 @@ const { User } = require('../database/models');
 
 const { SECRET } = process.env;
 
-exports.post = (req, res) => {
+exports.login = (req, res) => {
   const { username, password } = req.body;
   User.findOne({
     where: { username },
-    attributes: ['id', 'username', 'password'],
     raw: true,
   })
     .then((result) => {
@@ -22,11 +21,12 @@ exports.post = (req, res) => {
           return res.status(401).json({ error: 'something went wrong!' });
         }
         if (result2) {
-          const token = jwt.sign({ id: result.id, username }, SECRET);
-          return res.cookie('logged_in', token, { maxAge: 999999999 });
+          const { id, role } = result;
+          const token = jwt.sign({ id, username, role }, SECRET);
+          return res.cookie('logged_in', token, { maxAge: 999999999 }).json({ token });
         }
         return res.status(401).json({ error: 'password does not match' });
       });
     })
-    .catch();
+    .catch(() => res.status(500).json({ error: 'error in query' }));
 };
