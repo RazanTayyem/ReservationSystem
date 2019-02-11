@@ -9,12 +9,11 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
-
+        <React.Fragment>
           <Header />
           <Route exact path="/" component={HomePage} />
           <Route exact path="/hall" component={Hall} />
-        </div>
+      </React.Fragment>
       </Router>
     );
   }
