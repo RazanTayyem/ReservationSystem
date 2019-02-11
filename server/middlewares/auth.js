@@ -3,7 +3,7 @@ const cookie = require('cookie');
 
 const { SECRET } = process.env;
 
-exports.auth = (req, res) => {
+exports.auth = (req, res, next) => {
   if (req.headers.cookie) {
     const token = cookie.parse(req.headers.cookie).logged_in;
     jwt.verify(token, SECRET, (err, decoded) => {
@@ -11,13 +11,12 @@ exports.auth = (req, res) => {
         return res.status(401).json({ error: 'something went wrong!' });
       }
 
-      const { role } = decoded;
+      const { id, role } = decoded;
       if (role === 'admin' || role === 'user') {
-        return res.json({ role: '$role' });
+        req.user_id = id;
+        next();
       }
-
-      return res.json({ role: 'not auth' });
+      return res.json({ error: 'not auth' });
     });
   }
-  return res.json({ role: 'not auth' });
 };
