@@ -6,13 +6,18 @@ const Lunch = sequelize.define('lunch', {
     type: Sequelize.FLOAT,
   },
   note: {
-    type: Sequelize.STRING(500),
+    type: Sequelize.TEXT,
   },
   time: {
     type: Sequelize.DATE,
   },
-  event_id: {
-    type: Sequelize.INTEGER,
+  createdAt: {
+    type: Sequelize.DATE(),
+    defaultValue: sequelize.literal('NOW()'),
+  },
+  updatedAt: {
+    type: Sequelize.DATE(),
+    defaultValue: sequelize.literal('NOW()'),
   },
 });
 module.exports = Lunch;

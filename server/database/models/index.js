@@ -21,4 +21,6 @@ Equipment.belongsTo(Event, {
   onDelete: 'CASCADE', forignKey: 'event_id', targetKey: 'id',
 });
 
-module.exports = { sequelize: Sequelize, User, Event, Coffee, Lunch, Equipment};
+module.exports = {
+  sequelize: Sequelize, User, Event, Coffee, Lunch, Equipment,
+};

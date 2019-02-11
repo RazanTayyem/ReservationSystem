@@ -19,7 +19,7 @@ const Event = sequelize.define('events', {
     allowNull: false,
   },
   price: {
-    type: Sequelize.STRING(150),
+    type: Sequelize.FLOAT,
     allowNull: false,
   },
   capacity: {
@@ -27,15 +27,19 @@ const Event = sequelize.define('events', {
     allowNull: false,
   },
   note: {
-    type: Sequelize.STRING(500),
-  },
-  user_id: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
+    type: Sequelize.TEXT,
   },
   status: {
     type: Sequelize.INTEGER,
     allowNull: false,
+  },
+  createdAt: {
+    type: Sequelize.DATE(),
+    defaultValue: sequelize.literal('NOW()'),
+  },
+  updatedAt: {
+    type: Sequelize.DATE(),
+    defaultValue: sequelize.literal('NOW()'),
   },
 });
 module.exports = Event;
