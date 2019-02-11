@@ -1,25 +1,60 @@
 import React, { Component } from "react";
 import './login.css';
 import Logobig from './logobig.png';
-
+import axios from 'axios';
 
 class Login extends Component {
-  handleChange(event) {
-    this.setState({title: event.target.value})
+  state={
+    input:''
   }
-  render() {
+  handleChange=({target:{name,value}})=> {
+    console.log(name,value);
+    this.setState({[name]: value})
+  }
 
+  handleClick =()=>{
+      const {history} = this.props;
+    axios.post('/login',this.state)
+    .then((data)=>{
+    history.push('/hall');
+    })
+
+  }
+  handleSubmitForm=(event)=>{
+    event.preventDefault();
+    console.log('safffa');
+  }
+
+
+  render() {
 return(
   <div className="login">
     <img  className="photo"src={Logobig} alt="logo" width="30%" height="370px"/>
 
-    <form onChange={this.handleChange.bind(this)} action ="/login" method="post">
+    <form  onSubmit ={this.handleSubmitForm}>
     <div className="form">
-    <input type="text" id="login" class="fadeIn second" name="login" placeholder="username"/>
-    <input type="text" id="password" class="fadeIn third" name="password" placeholder="password"/>
+    <input
+    type="text"
+    class="fadeIn second"
+    name="username"
+    value={this.state.username}
+    placeholder="username"
+    onChange={this.handleChange}
+    />
+    <input
+    type="text"
+    class="fadeIn third"
+    name="password"
+    placeholder="password"
+    value={this.state.password}
+    onChange={this.handleChange}
+    />
     </div>
-    <button  className="btn1"type="submit">Log in</button>
-
+    <button
+    className="btn1"
+    onClick={this.handleClick}>
+    Log in
+    </button>
       </form>
   </div>
 )

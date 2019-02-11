@@ -10,8 +10,8 @@ class App extends Component {
     return (
       <Router>
         <React.Fragment>
-          <Login />
-          
+          <Route exact path="/" component={Login} />
+          <Route exact path="/hall" component={Hall} />
       </React.Fragment>
       </Router>
     );
