@@ -11,9 +11,7 @@ class App extends Component {
       <Router>
         <React.Fragment>
           <Login />
-          <Header />
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/hall" component={Hall} />
+          
       </React.Fragment>
       </Router>
     );
