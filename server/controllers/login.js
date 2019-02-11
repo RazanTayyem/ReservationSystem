@@ -30,3 +30,7 @@ exports.login = (req, res) => {
     })
     .catch(() => res.status(500).json({ error: 'error in query' }));
 };
+
+exports.logout = (req, res) => {
+  res.clearCookie('logged_in');
+};
