@@ -4,17 +4,17 @@ import "./App.css";
 import HomePage from "./components/HomePage";
 import Hall from "./components/Hall";
 import Header from './components/Header/header';
-
+import Login from './components/Login/login';
 class App extends Component {
   render() {
     return (
       <Router>
-        <div>
-
+        <React.Fragment>
+          <Login />
           <Header />
           <Route exact path="/" component={HomePage} />
           <Route exact path="/hall" component={Hall} />
-        </div>
+      </React.Fragment>
       </Router>
     );
   }
