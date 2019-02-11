@@ -1,12 +1,19 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
+import HomePage from "./components/HomePage";
+import Hall from "./components/Hall";
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <h1>Reservation System!</h1>
-      </div>
+      // <h1>hey</h1>
+      <Router>
+        <div>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/hall" component={Hall} />
+        </div>
+      </Router>
     );
   }
 }
