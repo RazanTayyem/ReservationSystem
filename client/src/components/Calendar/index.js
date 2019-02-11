@@ -22,6 +22,7 @@ class BigCalendar extends Component {
       console.log(error);
     })
   }
+
     click=()=>{
       const {history}= this.props;
       history.push('/bookevent');

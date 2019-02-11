@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
-import Header from "./components/Header";
+
 import Calendar from "./components/Calendar";
 import HomePage from "./components/HomePage";
 import Hall from "./components/Hall";
+import BookEvent from "./components/BookEvent";
+import DetailsEvent from "./components/DetailsEvent";
 
 class App extends Component {
   render() {
@@ -12,7 +14,11 @@ class App extends Component {
       <Router>
         <div>
           <Route exact path="/" component={HomePage} />
+          <Route exact path="/" component={Calendar} />
           <Route exact path="/hall" component={Hall} />
+          <Route exact path="/bookevent" component={BookEvent}/>
+          <Route exact path="/detailsevent" component={DetailsEvent}/>
+
         </div>
       </Router>
     );
