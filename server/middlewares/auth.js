@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken');
 const cookie = require('cookie');
-const { User } = require('../database/models');
 
 const { SECRET } = process.env;
 
@@ -9,29 +8,16 @@ exports.auth = (req, res) => {
     const token = cookie.parse(req.headers.cookie).logged_in;
     jwt.verify(token, SECRET, (err, decoded) => {
       if (err) {
-        throw new Error(err);
+        return res.status(401).json({ error: 'something went wrong!' });
       }
-      const user_id = decoded.id;
-      serviceDetails
-        .findAll({
-          where: { userId: user_id },
-          attributes: ['id', 'name', 'location', 'price', 'image_url'],
-          raw: true,
-          include: [
-            {
-              model: user,
-            },
-          ],
-        })
-        .then((result) => {
-          if (!result || result.length === 0) {
-            return res.render('profile', { message: 'No Results Exists !' });
-          }
-          return res.render('profile', { result });
-        })
-        .catch(() => {
-          res.render('serverError', { message: 'No Data Exists ' });
-        });
+
+      const { role } = decoded;
+      if (role === 'admin' || role === 'user') {
+        return res.json({ role: '$role' });
+      }
+
+      return res.json({ role: 'not auth' });
     });
   }
+  return res.json({ role: 'not auth' });
 };
