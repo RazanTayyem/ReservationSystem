@@ -24,9 +24,13 @@
   },
   "homepage": "https://github.com/FACK1/ReservationSystem#readme",
   "dependencies": {
+    "bcrypt": "^3.0.4",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
     "compression": "^1.7.3",
     "env2": "^2.2.2",
     "express": "^4.16.4",
+    "jsonwebtoken": "^8.4.0",
     "pg": "^7.8.0",
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.42.0"
