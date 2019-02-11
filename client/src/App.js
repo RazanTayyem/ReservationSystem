@@ -7,19 +7,20 @@ import HomePage from "./components/HomePage";
 import Hall from "./components/Hall";
 import BookEvent from "./components/BookEvent";
 import DetailsEvent from "./components/DetailsEvent";
+import Header from './components/Header/header';
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <React.Fragment>
+          <Header />
           <Route exact path="/" component={HomePage} />
           <Route exact path="/" component={Calendar} />
           <Route exact path="/hall" component={Hall} />
           <Route exact path="/bookevent" component={BookEvent}/>
           <Route exact path="/detailsevent" component={DetailsEvent}/>
-
-        </div>
+      </React.Fragment>
       </Router>
     );
   }
