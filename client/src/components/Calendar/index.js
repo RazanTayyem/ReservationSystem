@@ -3,46 +3,54 @@ import Calendar from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import moment from "moment";
 import axios from 'axios'
-const localizer = Calendar.momentLocalizer(moment);
+
 
 class BigCalendar extends Component {
 
   state={
-      events:{},
-    }
-
+     loading: false
+   }
   componentDidMount(){
-    axios.get('/')
-    .then((data)=>{
-      const result =data.data;
-      this.setState({
-        events: result,
-      })
-    }).catch((error)=>{
-      console.log(error);
-    })
-  }
+     axios.get('/events')
+     .then((data)=>{
+       const result =data.data;
+       console.log('result',result);
+       this.setState({
+         events: result,
+         loading:true
+       })
+     }).catch((error)=>{
+       console.log({error});
+     })
+   }
 
-    click=()=>{
+
+  click=()=>{
       const {history}= this.props;
       history.push('/bookevent');
     }
 
-    show=()=>{
-      console.log(this.props);
+  show=()=>{
       const {history}= this.props;
       history.push('/detailsevent');
     }
 
+
     render() {
+      const localizer = Calendar.momentLocalizer(moment);
+      const{events,loading} = this.state;
+      console.log('events',events);
+      if(!loading){
+        return <h1>loading </h1>
+        }
       return (
         <div>
           <Calendar
             selectable
             localizer={localizer}
             defaultDate={new Date()}
-            defaultView="month"
-            events={this.state.events}
+            defaultView= {Calendar.Views.MONTH, Calendar.Views.WEEK, Calendar.Views.DAY, Calendar.Views.AGENDA}
+            events={events}
             style={{ height: "100vh" }}
             onSelectEvent={this.show}
             onSelectSlot={this.click}

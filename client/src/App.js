@@ -20,6 +20,7 @@ class App extends Component {
           <Route exact path="/hall" component={Hall} />
           <Route exact path="/bookevent" component={BookEvent}/>
           <Route exact path="/detailsevent" component={DetailsEvent}/>
+
       </React.Fragment>
       </Router>
     );
