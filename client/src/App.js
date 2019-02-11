@@ -7,7 +7,6 @@ import Hall from "./components/Hall";
 class App extends Component {
   render() {
     return (
-      // <h1>hey</h1>
       <Router>
         <div>
           <Route exact path="/" component={HomePage} />
