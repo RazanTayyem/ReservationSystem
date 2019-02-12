@@ -2,8 +2,7 @@ import React, {Component} from 'react';
 import Calendar from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import moment from "moment";
-import axios from 'axios'
-
+import axios from 'axios';
 
 class BigCalendar extends Component {
 
@@ -14,13 +13,24 @@ class BigCalendar extends Component {
      axios.get('/events')
      .then((data)=>{
        const result =data.data;
-       console.log('result',result);
+       const events = result.map((event)=>{
+        return { id: event.id,
+         title: event.title,
+         start: new Date(event.start_date),
+         end: new Date (event.end_date),
+         status: event.status,
+         price: event.price,
+         capacity: event.capacity,
+         note: event.note,
+         orgName: event.org_name,
+         userId : event.eventId}
+       })
        this.setState({
-         events: result,
+         events,
          loading:true
        })
      }).catch((error)=>{
-       console.log({error});
+
      })
    }
 
@@ -35,11 +45,9 @@ class BigCalendar extends Component {
       history.push('/detailsevent');
     }
 
-
     render() {
       const localizer = Calendar.momentLocalizer(moment);
       const{events,loading} = this.state;
-      console.log('events',events);
       if(!loading){
         return <h1>loading </h1>
         }
@@ -49,7 +57,7 @@ class BigCalendar extends Component {
             selectable
             localizer={localizer}
             defaultDate={new Date()}
-            defaultView= {Calendar.Views.MONTH, Calendar.Views.WEEK, Calendar.Views.DAY, Calendar.Views.AGENDA}
+            defaultView= {'week'}
             events={events}
             style={{ height: "100vh" }}
             onSelectEvent={this.show}
