@@ -13,7 +13,7 @@ exports.login = (req, res) => {
   })
     .then((result) => {
       if (!result) {
-        return res.status(401).json({ error: 'user not found' });
+        return res.status(401).json({ success: 'false', error: 'user not found' });
       }
 
       bcrypt.compare(password, result.password, (err, result2) => {
