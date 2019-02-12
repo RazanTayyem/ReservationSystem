@@ -30,10 +30,10 @@ class BigCalendar extends Component {
          loading:true
        })
      }).catch((error)=>{
-
+       const {history}= this.props;
+       history.push('/error');
      })
    }
-
 
   click=()=>{
       const {history}= this.props;
