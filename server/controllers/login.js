@@ -18,17 +18,17 @@ exports.login = (req, res) => {
 
       bcrypt.compare(password, result.password, (err, result2) => {
         if (err) {
-          return res.status(401).json({ error: 'something went wrong!' });
+          return res.status(401).json({ success: 'false', error: 'something went wrong!' });
         }
         if (result2) {
           const { id, role } = result;
           const token = jwt.sign({ id, username, role }, SECRET);
-          return res.cookie('logged_in', token, { maxAge: 999999999 }).json({ token });
+          return res.cookie('logged_in', token, { maxAge: 999999999 }).json({ success: 'true', token });
         }
-        return res.status(401).json({ error: 'password does not match' });
+        return res.status(401).json({ success: 'false', error: 'password does not match' });
       });
     })
-    .catch(() => res.status(500).json({ error: 'error in query' }));
+    .catch(() => res.status(500).json({ success: 'false', error: 'error in server' }));
 };
 
 exports.logout = (req, res) => {
