@@ -9,7 +9,7 @@ const Coffee = sequelize.define('coffee', {
     type: Sequelize.TEXT,
   },
   time: {
-    type: Sequelize.DATE,
+    type: Sequelize.TEXT,
   },
   createdAt: {
     type: Sequelize.DATE(),
