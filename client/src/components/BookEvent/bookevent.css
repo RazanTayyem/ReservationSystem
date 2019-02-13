@@ -1,23 +1,28 @@
+body{
+  background-color: #F7F2F2;
+}
 .BookEvent{
   width: 75%;
   float: right;
   margin: 150px 10px 10px 50px;
-  background-color: #f2f2f2;
-
+  background-color: white;
 }
 .container{
   display: flex;
   border-radius: 5px;
-  background-color:#f2f2f2;
+  margin-top: -130px;
+  background-color: white;
 }
 .column1{
   flex-direction:column;
   width: 50%;
+  background-color: white;
 }
 .column2{
   flex-direction:column;
   width: 50%;
   margin-top: 68px;
+  background-color: white;
 }
 .h2{
   margin-left: 10px;
@@ -137,6 +142,7 @@
 
 .totalcost{
   margin-top: 85px;
+  font-size: 1.05em;
 }
 
 .submitBtn{
@@ -159,5 +165,7 @@
 .total{
 display: flex;
 flex-direction: row;
-
+}
+.both{
+  display: flex;
 }

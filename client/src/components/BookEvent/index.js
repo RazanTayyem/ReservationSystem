@@ -1,10 +1,19 @@
 import React from 'react';
+import NavBar from "../NavBar";
+import SideBar from "../SideBar";
 import './bookevent.css';
+
 class BookEvent extends React.Component {
   render() {
     return (
+      <div className="page">
+        <div>
+          <NavBar />
+        </div>
+        <div className="both">
+          <SideBar />
       <div className="BookEvent">
-        <form onSubmit={this.handleSubmitForm}>
+        <form>
           <div className="container">
             <div className="column1">
               <h2 className="h2">General</h2>
@@ -116,6 +125,8 @@ class BookEvent extends React.Component {
           </div>
 
         </form>
+        </div>
+        </div>
       </div>
       )
   }
