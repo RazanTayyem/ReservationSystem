@@ -22,7 +22,7 @@ exports.postEvent = (req, res) => {
     equipment_note,
   } = req.body;
 
-  return Event.create({
+  Event.create({
     title,
     start_date,
     end_date,
