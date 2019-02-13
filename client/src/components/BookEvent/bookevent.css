@@ -36,6 +36,42 @@ body{
   padding-top: 10px;
   margin-left: 12px;
 }
+
+.input::placeholder {
+  color: black;
+  font-size: 1.2em;
+  font-style: italic;
+}
+.note::placeholder {
+  color: black;
+  font-size: 1.2em;
+  font-style: italic;
+}
+.coffeecost::placeholder {
+  color: black;
+  font-size: 1.2em;
+  font-style: italic;
+}
+.lunchcost::placeholder {
+  color: black;
+  font-size: 1.2em;
+  font-style: italic;
+}
+.equipmentcost::placeholder {
+  color: black;
+  font-size: 1.2em;
+  font-style: italic;
+}
+.lunchtime::placeholder {
+  color: black;
+  font-size: 1.2em;
+  font-style: italic;
+}
+.coffeetime::placeholder {
+  color: black;
+  font-size: 1.2em;
+  font-style: italic;
+}
 .input{
   background-color: #FAFCFC;
   border: none;
@@ -85,7 +121,7 @@ body{
   margin: 222px 0 10px 12px;
   padding: 5px 0px 5px 2px;
 }
-.lunchdate{
+.lunchtime{
   background-color: #FAFCFC;
   border: none;
   color: #0d0d0d;
@@ -114,7 +150,7 @@ body{
   margin: 78px 0 10px 12px;
   padding: 5px 0px 5px 2px;
 }
-.coffeedate{
+.coffeetime{
   background-color: #FAFCFC;
   border: none;
   color: #0d0d0d;

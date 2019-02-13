@@ -88,9 +88,9 @@ class BookEvent extends React.Component {
 
             />
 
-            <input className="lunchdate"
+            <input className="lunchtime"
               type="text"
-              name="lunchtime"
+              name="time"
               placeholder="Time:"
             />
 
@@ -102,9 +102,9 @@ class BookEvent extends React.Component {
             />
 
 
-            <input className="coffeedate"
+            <input className="coffeetime"
               type="text"
-              name="coffeetime"
+              name="time"
               placeholder="Time:"
             />
             <input className="equipmentcost"
