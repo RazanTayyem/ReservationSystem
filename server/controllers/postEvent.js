@@ -1,11 +1,10 @@
-const { Event } = require('../database/models');
-const { Coffee } = require('../database/models');
-const { Lunch } = require('../database/models');
+const {
+  Event, Coffee, Lunch, Equipment,
+} = require('../database/models');
 
 exports.postEvent = (req, res) => {
-  const { userId } = req.params;
-
-  Event.create({
+  const { userId } = req;
+  const {
     title,
     start_date,
     end_date,
@@ -13,27 +12,47 @@ exports.postEvent = (req, res) => {
     price,
     capacity,
     note,
-    status,
+    coffee_note,
+    coffee_price,
+    coffee_time,
+    lunch_note,
+    lunch_price,
+    lunch_time,
+    equibment_price,
+    equipment_note,
+  } = req.body;
+
+  return Event.create({
+    title,
+    start_date,
+    end_date,
+    org_name,
+    price,
+    capacity,
+    note,
+    status: 0,
     userId,
     raw: true,
   })
-    .then((result) => {
-      Coffee.create({
-        price,
-        note,
-        time,
-        eventId: result.dataValues.id,
-      });
+    .then(result => Coffee.create({
+      price: coffee_price,
+      note: coffee_note,
+      time: coffee_time,
+      eventId: result.dataValues.id,
+    }))
+    .then(result => Lunch.create({
+      price: lunch_price,
+      note: lunch_note,
+      time: lunch_time,
+      eventId: result.dataValues.eventId,
+    }))
+    .then(result => Equipment.create({
+      price: equibment_price,
+      note: equipment_note,
+      eventId: result.dataValues.eventId,
+    }))
+    .then(() => {
+      res.json({ success: 'event has been added' });
     })
-    .then((result) => {
-      Lunch.create({
-        price,
-        note,
-        time,
-        eventId: result.dataValues.id,
-      });
-    })
-    .catch(() => {
-      res.json({ error: 'Something went wrong!' });
-    });
+    .catch(() => res.status(500).json({ error: 'something wrong in query ' }));
 };
