@@ -1,25 +1,6 @@
 import React from 'react';
 import './bookevent.css';
-import axios from 'axios';
 class BookEvent extends React.Component {
-  state={
-    input:''
-  }
-  handleChange=({target:{name,value}})=> {
-    this.setState({[name]: value})
-  }
-
-  handleClick =()=>{
-    const {history} = this.props;
-    axios.post('/bookevent',this.state)
-    .then((data)=>{
-    history.push('/events');
-    })
-  }
-
-  handleSubmitForm=(event)=>{
-    event.preventDefault();
-  }
   render() {
     return (
       <div className="BookEvent">
