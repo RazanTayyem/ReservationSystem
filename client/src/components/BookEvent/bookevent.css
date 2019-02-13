@@ -5,12 +5,11 @@
   background-color: #f2f2f2;
 
 }
-.container {
+.container{
   display: flex;
   border-radius: 5px;
   background-color:#f2f2f2;
 }
-
 .column1{
   flex-direction:column;
   width: 50%;
@@ -40,7 +39,19 @@
   margin: 10px 0px 10px 12px;
   padding: 5px 0px 5px 2px;
 }
-.textarea{
+.note{
+  background-color: #FAFCFC;
+  border: none;
+  color: #0d0d0d;
+  width: 80%;
+  text-align: left;
+  text-decoration: none;
+  font-size: 16px;
+  border-bottom: 2px solid #719CEB;
+  margin: 10px 0px 10px 12px;
+  padding: 10px 0 90px 2px;
+}
+.bookdates{
   background-color: #FAFCFC;
   border: none;
   color: #0d0d0d;
@@ -52,7 +63,8 @@
   margin: 10px 0px 10px 12px;
   padding: 5px 0px 5px 2px;
 }
-.lunch{
+
+.lunchcost{
   background-color: #FAFCFC;
   border: none;
   color: #0d0d0d;
@@ -61,14 +73,26 @@
   text-decoration: none;
   font-size: 16px;
   border-bottom: 2px solid #719CEB;
-  margin: 128px 0px 10px 12px;
+  margin: 218px 0 10px 12px;
   padding: 5px 0px 5px 2px;
 }
-.coffee{
-  margin-top: 70px;
-  margin-left: 10px;
+.lunchdate{
+  background-color: #FAFCFC;
+  border: none;
+  color: #0d0d0d;
+  width: 80%;
+  text-align: left;
+  text-decoration: none;
+  font-size: 16px;
+  border-bottom: 2px solid #719CEB;
+  margin: 48px 0 10px 12px;
+  padding: 5px 0px 5px 2px;
 }
 
+.coffee{
+  margin-top: 20px;
+  margin-left: 10px;
+}
 .coffeecost{
   background-color: #FAFCFC;
   border: none;
@@ -78,14 +102,26 @@
   text-decoration: none;
   font-size: 16px;
   border-bottom: 2px solid #719CEB;
-  margin: 44px 0px 10px 12px;
+  margin: 78px 0 10px 12px;
   padding: 5px 0px 5px 2px;
 }
-.equipment{
-  margin-top: 60px;
-  margin-left: 10px;
+.coffeedate{
+  background-color: #FAFCFC;
+  border: none;
+  color: #0d0d0d;
+  width: 80%;
+  text-align: left;
+  text-decoration: none;
+  font-size: 16px;
+  border-bottom: 2px solid #719CEB;
+  margin: 48px 0 10px 12px;
+  padding: 5px 0px 5px 2px;
 }
 
+.equipment{
+  margin-top: 30px;
+  margin-left: 10px;
+}
 .equipmentcost{
   background-color: #FAFCFC;
   border: none;
@@ -95,8 +131,12 @@
   text-decoration: none;
   font-size: 16px;
   border-bottom: 2px solid #719CEB;
-  margin: 33px 0px 10px 12px;
+  margin: 87px 0 10px 12px;
   padding: 5px 0px 5px 2px;
+}
+
+.totalcost{
+  margin-top: 85px;
 }
 
 .submitBtn{
@@ -107,10 +147,17 @@
   border-radius: 4px;
   cursor: pointer;
   float: right;
-  margin: 20px;
+  height: 40px;
+  margin-right: 40px;
+  margin-top: 80px;
   width: 100px;
 }
 
 .submitBtn:hover {
   background-color: #719CEB;
+}
+.total{
+display: flex;
+flex-direction: row;
+
 }

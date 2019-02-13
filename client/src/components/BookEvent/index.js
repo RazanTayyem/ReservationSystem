@@ -30,126 +30,110 @@ class BookEvent extends React.Component {
                 <input className="input"
                   type="text"
                   name="title"
-                  value={this.state.title}
                   placeholder="Event Name:"
-                  onChange={this.handleChange}
                 />
                 <label className="label">Start Date:</label>
-                <input className="input"
+                <input className="bookdates"
                   type="date"
                   name="startdate"
-                  value={this.state.startdate}
-                  onChange={this.handleChange}
                 />
-                <input className="input"
+                <input className="note"
                   type="text"
                   name="note"
-                  value={this.state.note}
                   placeholder="Note:"
-                  onChange={this.handleChange}
+
                 />
                 <input className="input"
                   type="text"
                   name="capacity"
-                  value={this.state.capacity}
                   placeholder="#Persons:"
-                  onChange={this.handleChange}
+
                 />
                 <h2 className="h2">Lunch</h2>
-                <input className="input"
+                <input className="note"
                   type="text"
                   name="lunchnote"
-                  value={this.state.lunchnote}
                   placeholder="Description:"
-                  onChange={this.handleChange}
+
                 />
 
                 <h2 className="coffee">Coffee</h2>
-                <input className="input"
+                <input className="note"
                   type="text"
                   name="coffeenote"
-                  value={this.state.coffeenote}
                   placeholder="Description:"
-                  onChange={this.handleChange}
+
                 />
 
                 <h2 className="equipment">Equipment</h2>
-                <input className="input"
+                <input className="note"
                   type="text"
                   name="equipmentnote"
-                  value={this.state.equipmentnote}
                   placeholder="Description:"
-                  onChange={this.handleChange}
+
                 />
             </div>
             <div className="column2">
             <input className="input"
               type="text"
               name="orgName"
-              value={this.state.orgName}
               placeholder="Organization Name:"
-              onChange={this.handleChange}
+
             />
             <label className="label">End Date:</label>
-            <input className="input"
+            <input className="bookdates"
               type="date"
               name="enddate"
-              value={this.state.enddate}
-              onChange={this.handleChange}
             />
             <input className="input"
               type="Number"
               name="price"
-              value={this.state.price}
               placeholder="Cost:"
-              onChange={this.handleChange}
+
             />
-            <input className="lunch"
+            <input className="lunchcost"
               type="Number"
               name="lunchprice"
-              value={this.state.lunchprice}
               placeholder="Cost/Person:"
-              onChange={this.handleChange}
+
             />
-            <label className="label">Time:</label>
-            <input className="input"
-              type="date"
+
+            <input className="lunchdate"
+              type="text"
               name="lunchtime"
-              value={this.state.lunchtime}
-              onChange={this.handleChange}
+              placeholder="Time:"
             />
 
             <input className="coffeecost"
               type="Number"
               name="coffeeprice"
-              value={this.state.coffeeprice}
               placeholder="Cost/Person:"
-              onChange={this.handleChange}
+
             />
 
-            <label className="label">Time:</label>
-            <input className="input"
-              type="date"
+
+            <input className="coffeedate"
+              type="text"
               name="coffeetime"
-              value={this.state.coffeetime}
-              onChange={this.handleChange}
+              placeholder="Time:"
             />
             <input className="equipmentcost"
               type="Number"
               name="equipmentprice"
-              value={this.state.equipmentprice}
               placeholder="Cost:"
-              onChange={this.handleChange}
+
             />
-            <h2 className="h2">Total Cost:</h2>
+            <div className="total">
+            <h2 className="totalcost">Total Cost:</h2>
+            <input className="submitBtn"
+            type="submit"
+            >
+            </input>
             </div>
+            </div>
+
           </div>
-          <input className="submitBtn"
-          type="submit"
-          onClick={this.handleClick}
-          value="Submit"
-          >
-          </input>
+
         </form>
       </div>
       )
