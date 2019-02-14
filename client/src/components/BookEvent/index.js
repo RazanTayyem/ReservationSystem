@@ -9,8 +9,8 @@ import axios from "axios";
 class BookEvent extends React.Component {
   state = {
     input: "",
-    startDate: new Date(),
-    endDate: new Date()
+    start_date: new Date(),
+    end_date: new Date()
   };
 
   handleChange = ({ target: { name, value } }) => {
@@ -20,22 +20,21 @@ class BookEvent extends React.Component {
 
   handleChangeStartDate = date => {
     console.log("date", date);
-    this.setState({ startDate: date });
+    this.setState({ start_date: date });
   };
   handleChangeEndDate = date => {
     console.log("date", date);
-    this.setState({ endDate: date });
+    this.setState({ end_date: date });
   };
-
-  handleClick = () => {
-    const { history } = this.props;
-    axios.post("/bookevent", this.state).then(data => {
-      history.push("/events");
-    });
-  };
-
   handleSubmitForm = event => {
     event.preventDefault();
+    const { history } = this.props;
+    axios
+      .post("/event", this.state)
+      .then(data => {
+        history.push("/events");
+      })
+      .catch(error => console.log(error));
   };
 
   render() {
@@ -47,7 +46,7 @@ class BookEvent extends React.Component {
         <div className="both">
           <SideBar />
           <div className="BookEvent">
-            <form>
+            <form onSubmit={this.handleSubmitForm}>
               <div className="container">
                 <div className="column1">
                   <h2 className="h2">General</h2>
@@ -63,8 +62,8 @@ class BookEvent extends React.Component {
                   <DatePicker
                     className="bookdates"
                     selected={this.state.startDate}
-                    // onSelect={this.handleSelect}
                     onChange={this.handleChangeStartDate}
+                    name="start_date"
                   />
 
                   <input
@@ -87,7 +86,7 @@ class BookEvent extends React.Component {
                   <input
                     className="note"
                     type="text"
-                    name="lunchnote"
+                    name="lunch_note"
                     placeholder="Description:"
                     value={this.state.lunchnote}
                     onChange={this.handleChange}
@@ -97,7 +96,7 @@ class BookEvent extends React.Component {
                   <input
                     className="note"
                     type="text"
-                    name="coffeenote"
+                    name="coffee_note"
                     placeholder="Description:"
                     value={this.state.coffeenote}
                     onChange={this.handleChange}
@@ -107,7 +106,7 @@ class BookEvent extends React.Component {
                   <input
                     className="note"
                     type="text"
-                    name="equipmentnote"
+                    name="equipment_note"
                     placeholder="Description:"
                     value={this.state.equipmentnote}
                     onChange={this.handleChange}
@@ -117,7 +116,7 @@ class BookEvent extends React.Component {
                   <input
                     className="input"
                     type="text"
-                    name="orgName"
+                    name="org_name"
                     placeholder="Organization Name"
                     value={this.state.orgName}
                     onChange={this.handleChange}
@@ -126,7 +125,6 @@ class BookEvent extends React.Component {
                   <DatePicker
                     className="bookdates"
                     selected={this.state.endDate}
-                    // onSelect={this.handleSelect}
                     onChange={this.handleChangeEndDate}
                   />
 
@@ -141,7 +139,7 @@ class BookEvent extends React.Component {
                   <input
                     className="lunchcost"
                     type="Number"
-                    name="lunchprice"
+                    name="lunch_price"
                     placeholder="Cost/Person:"
                     value={this.state.lunchprice}
                     onChange={this.handleChange}
@@ -150,7 +148,7 @@ class BookEvent extends React.Component {
                   <input
                     className="lunchtime"
                     type="text"
-                    name="time"
+                    name="lunch_time"
                     placeholder="Time:"
                     value={this.state.lunchtime}
                     onChange={this.handleChange}
@@ -159,7 +157,7 @@ class BookEvent extends React.Component {
                   <input
                     className="coffeecost"
                     type="Number"
-                    name="coffeeprice"
+                    name="coffee_price"
                     placeholder="Cost/Person:"
                     value={this.state.coffeeprice}
                     onChange={this.handleChange}
@@ -168,7 +166,7 @@ class BookEvent extends React.Component {
                   <input
                     className="coffeetime"
                     type="text"
-                    name="time"
+                    name="coffee_time"
                     placeholder="Time:"
                     value={this.state.coffeetime}
                     onChange={this.handleChange}
@@ -176,19 +174,14 @@ class BookEvent extends React.Component {
                   <input
                     className="equipmentcost"
                     type="Number"
-                    name="equipmentprice"
+                    name="equipment_price"
                     placeholder="Cost:"
                     value={this.state.equipmentprice}
                     onChange={this.handleChange}
                   />
                   <div className="total">
                     <h2 className="totalcost">Total Cost:</h2>
-                    <input
-                      className="submitBtn"
-                      type="submit"
-                      onClick={this.handleClick}
-                      value="Submit"
-                    />
+                    <input className="submitBtn" type="submit" value="Submit" />
                   </div>
                 </div>
               </div>
