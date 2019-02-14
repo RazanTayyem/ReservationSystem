@@ -9,7 +9,7 @@ const Lunch = sequelize.define('lunch', {
     type: Sequelize.TEXT,
   },
   time: {
-    type: Sequelize.TEXT,
+    type: Sequelize.STRING,
   },
   createdAt: {
     type: Sequelize.DATE(),
