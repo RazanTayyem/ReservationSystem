@@ -10,9 +10,8 @@
   justify-content: space-between;
 }
 .logout-btn {
-  color: #000;
   margin-right: 40px;
-  background-color: initial;
+  background-color: transparent;
   align-self: center;
   border: none;
   border-left: 2px ridge #c4c1;
@@ -26,6 +25,7 @@
   width: 48.74px;
   height: 41px;
   margin-top: 3px;
+  margin-left: 40px;
 }
 .nav-outer {
   display: flex;
