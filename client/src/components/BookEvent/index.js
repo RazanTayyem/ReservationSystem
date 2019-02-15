@@ -57,6 +57,7 @@ class BookEvent extends React.Component {
                     placeholder="Event Name:"
                     value={this.state.title}
                     onChange={this.handleChange}
+                    required
                   />
                   <label className="label">Start Date:</label>
                   <DatePicker
@@ -81,6 +82,7 @@ class BookEvent extends React.Component {
                     placeholder="#Persons:"
                     value={this.state.capacity}
                     onChange={this.handleChange}
+                    required
                   />
                   <h2 className="h2">Lunch</h2>
                   <input
@@ -120,6 +122,7 @@ class BookEvent extends React.Component {
                     placeholder="Organization Name"
                     value={this.state.orgName}
                     onChange={this.handleChange}
+                    required
                   />
                   <label className="label">End Date:</label>
                   <DatePicker
