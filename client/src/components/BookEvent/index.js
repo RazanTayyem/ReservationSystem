@@ -61,7 +61,7 @@ class BookEvent extends React.Component {
                   <label className="label">Start Date:</label>
                   <DatePicker
                     className="bookdates"
-                    selected={this.state.startDate}
+                    selected={this.state.start_date}
                     onChange={this.handleChangeStartDate}
                     name="start_date"
                   />
@@ -124,7 +124,7 @@ class BookEvent extends React.Component {
                   <label className="label">End Date:</label>
                   <DatePicker
                     className="bookdates"
-                    selected={this.state.endDate}
+                    selected={this.state.end_date}
                     onChange={this.handleChangeEndDate}
                   />
 
