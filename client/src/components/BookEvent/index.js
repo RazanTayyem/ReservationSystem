@@ -9,8 +9,8 @@ import axios from "axios";
 class BookEvent extends React.Component {
   state = {
     input: "",
-    start_date: new Date(),
-    end_date: new Date()
+    start_date: this.props.history.location.event.start,
+    end_date: this.props.history.location.event.end
   };
 
   handleChange = ({ target: { name, value } }) => {
@@ -35,6 +35,7 @@ class BookEvent extends React.Component {
   };
 
   render() {
+    console.log('props',this.props);
     return (
       <div className="page">
         <div>
@@ -61,6 +62,10 @@ class BookEvent extends React.Component {
                     className="bookdates"
                     selected={this.state.start_date}
                     onChange={this.handleChangeStartDate}
+                    showTimeSelect
+                    timeFormat="HH:mm"
+                    dateFormat="MMMM d, yyyy h:mm aa"
+                    timeCaption="time"
                     name="start_date"
                   />
 
@@ -126,6 +131,10 @@ class BookEvent extends React.Component {
                     className="bookdates"
                     selected={this.state.end_date}
                     onChange={this.handleChangeEndDate}
+                    showTimeSelect
+                    timeFormat="HH:mm"
+                    dateFormat="MMMM d, yyyy h:mm aa"
+                    timeCaption="time"
                   />
 
                   <input
