@@ -87,7 +87,7 @@ class BookEvent extends React.Component {
                     type="text"
                     name="lunch_note"
                     placeholder="Description:"
-                    value={this.state.lunchnote}
+                    value={this.state.lunch_note}
                     onChange={this.handleChange}
                   />
 
@@ -97,7 +97,7 @@ class BookEvent extends React.Component {
                     type="text"
                     name="coffee_note"
                     placeholder="Description:"
-                    value={this.state.coffeenote}
+                    value={this.state.coffee_note}
                     onChange={this.handleChange}
                   />
 
@@ -107,7 +107,7 @@ class BookEvent extends React.Component {
                     type="text"
                     name="equipment_note"
                     placeholder="Description:"
-                    value={this.state.equipmentnote}
+                    value={this.state.equipment_note}
                     onChange={this.handleChange}
                   />
                 </div>
@@ -141,7 +141,7 @@ class BookEvent extends React.Component {
                     type="Number"
                     name="lunch_price"
                     placeholder="Cost/Person:"
-                    value={this.state.lunchprice}
+                    value={this.state.lunch_price}
                     onChange={this.handleChange}
                   />
 
@@ -150,7 +150,7 @@ class BookEvent extends React.Component {
                     type="text"
                     name="lunch_time"
                     placeholder="Time:"
-                    value={this.state.lunchtime}
+                    value={this.state.lunch_time}
                     onChange={this.handleChange}
                   />
 
@@ -159,7 +159,7 @@ class BookEvent extends React.Component {
                     type="Number"
                     name="coffee_price"
                     placeholder="Cost/Person:"
-                    value={this.state.coffeeprice}
+                    value={this.state.coffee_price}
                     onChange={this.handleChange}
                   />
 
@@ -168,7 +168,7 @@ class BookEvent extends React.Component {
                     type="text"
                     name="coffee_time"
                     placeholder="Time:"
-                    value={this.state.coffeetime}
+                    value={this.state.coffee_time}
                     onChange={this.handleChange}
                   />
                   <input
@@ -176,7 +176,7 @@ class BookEvent extends React.Component {
                     type="Number"
                     name="equipment_price"
                     placeholder="Cost:"
-                    value={this.state.equipmentprice}
+                    value={this.state.equipment_price}
                     onChange={this.handleChange}
                   />
                   <div className="total">
