@@ -41,17 +41,17 @@ class BigCalendar extends Component {
       });
   }
 
-  click = (event) => {
+  click = event => {
     const { history } = this.props;
     history.push({
-    pathname:"/bookevent",
-    event
-  });
+      pathname: "/bookevent",
+      event
+    });
   };
 
-  show = () => {
+  show = event => {
     const { history } = this.props;
-    history.push("/detailsevent");
+    history.push({ pathname: "/detailsevent", event });
   };
 
   render() {
