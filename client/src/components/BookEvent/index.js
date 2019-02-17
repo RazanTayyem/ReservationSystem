@@ -14,16 +14,13 @@ class BookEvent extends React.Component {
   };
 
   handleChange = ({ target: { name, value } }) => {
-    console.log(name, value);
     this.setState({ [name]: value });
   };
 
   handleChangeStartDate = date => {
-    console.log("date", date);
     this.setState({ start_date: date });
   };
   handleChangeEndDate = date => {
-    console.log("date", date);
     this.setState({ end_date: date });
   };
   handleSubmitForm = event => {
