@@ -1,10 +1,12 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 import NavBar from "../NavBar";
 import SideBar from "../SideBar";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./bookevent.css";
 import axios from "axios";
+import backCursor from './backCursor.png';
 
 class BookEvent extends React.Component {
   state = {
@@ -42,6 +44,7 @@ class BookEvent extends React.Component {
         </div>
         <div className="both">
           <SideBar />
+          <Link to= '/events'> <img className="cursor" src={backCursor} alt="back Cursor"/></Link>
           <div className="BookEvent">
             <form onSubmit={this.handleSubmitForm}>
               <div className="container">

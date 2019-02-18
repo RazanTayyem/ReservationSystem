@@ -1,7 +1,10 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom'
 import NavBar from "../NavBar";
 import SideBar from "../SideBar";
 import axios from "axios";
+import backCursor from './backCursor.png';
+
 
 class DetailsEvent extends Component {
   state = {
@@ -98,6 +101,7 @@ class DetailsEvent extends Component {
           </div>
           <div className="both">
             <SideBar />
+            <Link to= '/events'> <img className="cursor" src={backCursor} alt="back Cursor"/></Link>
             <div className="detailsEvent">
               <form onSubmit={this.handleSubmitForm}>
                 <h2 className="h2">General</h2>
