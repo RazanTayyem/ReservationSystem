@@ -7,7 +7,7 @@ exports.approveEvent = (req, res) => {
         if (result) {
           res.json({ success: true, message: 'status updated' });
         } else {
-          res.json({ sucess: false, message: 'status did not get updated!' });
+          res.json({ success: false, message: 'status did not get updated!' });
         }
       })
       .catch(() => res.status(500).json({ error: 'something wrong in query' }));
