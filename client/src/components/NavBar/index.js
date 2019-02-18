@@ -5,13 +5,11 @@ import axios from 'axios';
 
 
 function handleSubmit(props){
-  console.log("kugg",props)
 
   const { history } = props;
   axios
     .get("/logout")
     .then(() => {
-      console.log(props)
       history.push("/");
     })
     .catch(error => console.log(error));
