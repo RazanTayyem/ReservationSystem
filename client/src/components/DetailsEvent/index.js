@@ -5,14 +5,14 @@ import axios from "axios";
 
 class DetailsEvent extends Component {
   state = {
-    id: this.props.history.location.event.id,
     status: this.props.history.location.event.status,
     loading: false
   };
 
   componentDidMount() {
+    const id = this.props.history.location.event.id;
     axios
-      .get(`/event/${this.state.id}`)
+      .get(`/event/${id}`)
       .then(data => {
         this.setState({
           event_details: data.data.event,
@@ -33,8 +33,9 @@ class DetailsEvent extends Component {
     const { history } = this.props;
 
     if (this.state.status === 0) {
+      const id = this.props.history.location.event.id;
       axios
-        .put(`/event/${this.state.id}`)
+        .put(`/event/${id}`)
         .then(data => {
           history.push("/events");
         })
