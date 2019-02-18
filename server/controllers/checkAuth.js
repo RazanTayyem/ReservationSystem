@@ -10,7 +10,7 @@ exports.checkAuth = (req, res) => {
       if (err) {
         return res.status(401).json({ error: 'something went wrong!' });
       }
-      return res.json({ message: 'success' });
+      return res.json({ success: true });
     });
   }
 };

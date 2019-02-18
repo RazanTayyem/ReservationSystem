@@ -13,7 +13,7 @@ componentDidMount() {
     axios
       .get("/checkauth")
       .then(({data}) => {
-        if(data.message === 'success'){
+        if(data.success){
          history.push("/events");
         }
         else {
