@@ -12,7 +12,10 @@ function handleSubmit(props){
     .then(() => {
       history.push("/");
     })
-    .catch(error => console.log(error));
+    .catch(error => {
+      const { history } = this.props;
+      history.push("/error");
+    });
 };
 
 const NavBar = (props) => (
