@@ -13,6 +13,7 @@ exports.auth = (req, res, next) => {
       const { id, role } = decoded;
       if (role === 'admin' || role === 'user') {
         req.userId = id;
+        req.userRole = role;
         return next();
       }
       return res.json({ error: 'not auth' });
