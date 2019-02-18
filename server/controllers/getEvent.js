@@ -5,18 +5,22 @@ const {
 exports.getEvent = (req, res) => {
   const { id } = req.params;
   const { userRole } = req;
-  Event.findOne({ where: { id }, raw: true })
-    .then((event) => {
-      if (!event) {
-        return res.status(401).json({ message: 'no event exists' });
-      }
-      Coffee.findOne({ where: { eventId: id }, raw: true }).then((coffee) => {
-        if (!coffee) {
-          return res.status(401).json({ message: 'no coffee exists' });
-        }
-        Lunch.findOne({ where: { eventId: id }, raw: true }).then((lunch) => {
-          if (!lunch) {
-            return res.status(401).json({ message: 'no lunch exists' });
+  
+  Event.findOne(
+    { where: { id }, raw: true },
+  ).then((event) => {
+    Coffee.findOne(
+      { where: { eventId: id }, raw: true },
+    ).then((coffee) => {
+      Lunch.findOne(
+        { where: { eventId: id }, raw: true },
+      ).then((lunch) => {
+        Equipment.findOne(
+          { where: { eventId: id }, raw: true },
+        ).then((equipment) => {
+          if (!event) {
+            return res.status(401)
+              .json({ message: 'no event exists' });
           }
           Equipment.findOne({ where: { eventId: id }, raw: true }).then((equipment) => {
             if (!equipment) {
@@ -34,4 +38,4 @@ exports.getEvent = (req, res) => {
       });
     })
     .catch(err => res.status(500).json({ message: err }));
-};
+}
