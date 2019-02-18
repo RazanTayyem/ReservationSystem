@@ -39,7 +39,6 @@ exports.getEvent = ((req, res, next) => {
       });
     });
   })
-    .catch((err) => {
-      next(err);
-    });
+    .catch(err => res.status(500)
+      .json({ message: err }));
 });

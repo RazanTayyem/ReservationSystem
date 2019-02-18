@@ -8,7 +8,7 @@ const { auth } = require('./middlewares/auth.js');
 
 const router = express.Router();
 
-router.get('/events', getEvents);
+router.get('/events', auth, getEvents);
 router.post('/login', login);
 router.get('/logout', logout);
 router.post('/event', auth, postEvent);
