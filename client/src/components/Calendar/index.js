@@ -51,6 +51,13 @@ class BigCalendar extends Component {
     history.push({ pathname: "/detailsevent", event });
   };
 
+  pendingEventStyle = event => {
+    if (event.status === 0) {
+      const style = { backgroundColor: "#D4AC0D" };
+      return { style: style };
+    }
+  };
+
   render() {
     const localizer = Calendar.momentLocalizer(moment);
     const { events, loading } = this.state;
@@ -60,7 +67,7 @@ class BigCalendar extends Component {
     return (
       <div className="page">
         <div>
-          <NavBar />
+          <NavBar {...this.props} />
         </div>
         <div className="both">
           <SideBar />
@@ -70,10 +77,12 @@ class BigCalendar extends Component {
               localizer={localizer}
               defaultDate={new Date()}
               defaultView={"week"}
+              views={['week','day']}
               events={events}
               style={{ height: "100vh" }}
               onSelectEvent={this.detailsEvent}
               onSelectSlot={this.bookEvent}
+              eventPropGetter={this.pendingEventStyle}
             />
           </div>
         </div>
