@@ -4,12 +4,6 @@ body{
 .both{
   display: flex;
 }
-.cursor{
-  width: 31px;
-  height: 55px;
-  margin-top: 45px;
-  margin-left: 10px;
-}
 .BookEvent{
   width: 66%;
   float: right;
