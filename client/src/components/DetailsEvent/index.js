@@ -102,11 +102,11 @@ class DetailsEvent extends Component {
             <SideBar />
             <div className="detailsEvent">
               <form onSubmit={this.handleSubmitForm}>
-                <h2 className="h2">General</h2>
+                <h2 className="h22">General</h2>
                 <div className="labels_container">
                   <label className="title">Event Name:</label>
                   <label className="answer">{title}</label>
-                  <label className="Organization">Organization name:</label>
+                  <label className="Organization">Organization Name:</label>
                   <label className="answer">{org_name}</label>
                 </div>
                 <div className="labels_container">
@@ -121,41 +121,41 @@ class DetailsEvent extends Component {
                   <label className="persons">Number of persons:</label>
                   <label className="answer">{capacity}</label>
                 </div>
-                <div className="labels_container">
-                  <label className="Note">note:</label>
-                  <label className="answer">{note}</label>
+                <div className="note-description">
+                  <label className="Note">Note:</label>
+                  <div className="discrp">{note}</div>
                 </div>
 
-                <h2 className="h2">Lunch</h2>
+                <h2 className="h22">Lunch</h2>
 
                 <div className="labels_container">
-                  <label className="title">time:</label>
+                  <label className="title">Time:</label>
                   <label className="answer">{lunch_time}</label>
                 </div>
                 <div className="labels_container">
-                  <label className="title">price per person:</label>
+                  <label className="title">Price Per Person:</label>
                   <label className="answer">{lunch_price}</label>
                 </div>
-                <div className="labels_container">
+                <div className="note-description ">
                   <label className="title">Description:</label>
-                  <label className="answer">{lunch_note}</label>
+                  <div className="discrp">{lunch_note}</div>
                 </div>
-                <h2 className="h2">Coffee</h2>
+                <h2 className="h22">Coffee</h2>
                 <div className="labels_container">
-                  <label className="title">time:</label>
+                  <label className="title">Time:</label>
                   <label className="answer">{coffee_time}</label>
                 </div>
                 <div className="labels_container">
-                  <label className="title">price per person:</label>
+                  <label className="title">Price Per Person:</label>
                   <label className="answer">{coffee_price}</label>
                 </div>
-                <div className="labels_container">
+                <div className="note-description">
                   <label className="title">Description:</label>
-                  <label className="answer">{coffee_note}</label>
+                  <label className="discrp">{coffee_note}</label>
                 </div>
-                <h2 className="h2">Equipment</h2>
+                <h2 className="h22">Equipment</h2>
                 <div className="labels_container">
-                  <label className="title">price:</label>
+                  <label className="title">Price:</label>
                   <label className="answer">{equipment_price}</label>
                 </div>
                 <div className="labels_container">
