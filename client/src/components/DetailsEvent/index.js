@@ -106,7 +106,6 @@ class DetailsEvent extends Component {
           </div>
           <div className="both">
             <SideBar />
-            <BackCursor />
             <div className="detailsEvent">
               <form onSubmit={this.handleSubmitForm}>
                 <h2 className="h22">General</h2>
@@ -165,12 +164,15 @@ class DetailsEvent extends Component {
                   <label className="title">Price:</label>
                   <label className="answer">{equipment_price}</label>
                 </div>
-
-                <div className="labels_container">
+                <div className="note-description">
                   <label className="title">Description:</label>
-                  <label className="answer">{equipment_note}</label>
+                  <div className="discrp">{equipment_note}</div>
                 </div>
-                {statusBoolean && <input type="submit" value="Close" />}
+                {statusBoolean && (
+                  <div className="button">
+                    <input type="submit" value="Close" className="Approve" />
+                  </div>
+                )}
                 <div className="button">
                   {!statusBoolean && statusApprove && (
                     <input type="submit" value="Approve" className="Approve" />
