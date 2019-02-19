@@ -70,6 +70,7 @@ class BigCalendar extends Component {
               localizer={localizer}
               defaultDate={new Date()}
               defaultView={"week"}
+              views={['week','day']}
               events={events}
               style={{ height: "100vh" }}
               onSelectEvent={this.detailsEvent}
