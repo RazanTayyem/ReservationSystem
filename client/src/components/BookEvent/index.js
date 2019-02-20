@@ -7,7 +7,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import "./bookevent.css";
 import axios from "axios";
 
-
 class BookEvent extends React.Component {
   state = {
     input: "",
@@ -36,6 +35,10 @@ class BookEvent extends React.Component {
       .catch(error => console.log(error));
   };
 
+  cancel = () => {
+    const { history } = this.props;
+    history.push("/events");
+  };
   render() {
     return (
       <div className="page">
@@ -44,7 +47,6 @@ class BookEvent extends React.Component {
         </div>
         <div className="both">
           <SideBar />
-          <BackCursor />
           <div className="BookEvent">
             <form onSubmit={this.handleSubmitForm}>
               <div className="container">
@@ -191,8 +193,13 @@ class BookEvent extends React.Component {
                     onChange={this.handleChange}
                   />
                   <div className="total">
-                    <h2 className="totalcost">Total Cost:</h2>
                     <input className="submitBtn" type="submit" value="Submit" />
+                    <input
+                      type="submit"
+                      className="cancelBtn"
+                      value="Cancel"
+                      onClick={this.cancel}
+                    />
                   </div>
                 </div>
               </div>
