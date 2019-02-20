@@ -43,7 +43,7 @@ class HomePage extends Component {
       return (
         <div>
           <div className="home-nav-bar">
-            <NavBar />
+            <NavBar {...this.props} />
           </div>
           <div className="headerHolder">
             <Header />
