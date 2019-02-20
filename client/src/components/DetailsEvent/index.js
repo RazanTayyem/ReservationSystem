@@ -57,7 +57,6 @@ class DetailsEvent extends Component {
   };
 
   render() {
-    console.log("state", this.state);
     if (this.state.loading === true) {
       const {
         title = "event-title",
