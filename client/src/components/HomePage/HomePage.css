@@ -96,13 +96,13 @@
   width: 80%;
   display: flex;
   justify-content: space-around;
-  flex-direction: row;
+  flex-flow: row wrap;
   margin-bottom: 50px;
 }
 
 .all-halls {
   width: 100%;
   display: flex;
-  /* align-items: center; */
-  justify-content: center;
+  flex-flow: column wrap;
+  align-items: center;
 }
