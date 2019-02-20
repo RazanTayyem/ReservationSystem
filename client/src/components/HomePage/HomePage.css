@@ -60,7 +60,7 @@
 }
 
 .hall-container {
-  width: 36%;
+  width: 60%;
   display: flex;
   flex-flow: column wrap;
   margin-top: 30px;
@@ -78,11 +78,6 @@
 .hallBtn {
   position: relative;
   z-index: 1;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  line-height: normal;
-  font-size: 16px;
   text-align: center;
   width: 40%;
   height: 40px;
@@ -93,7 +88,7 @@
 }
 
 .halls-row {
-  width: 80%;
+  width: 50%;
   display: flex;
   justify-content: space-around;
   flex-flow: row wrap;
@@ -103,6 +98,17 @@
 .all-halls {
   width: 100%;
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: row wrap;
+  justify-content: center;
   align-items: center;
+}
+
+.button-link {
+  color: #000;
+  text-decoration: none;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+  font-size: 16px;
 }

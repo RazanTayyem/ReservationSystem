@@ -1,65 +1,47 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import Header from "../Header/header";
 import NavBar from "../NavBar";
 import axios from "axios";
 import "./HomePage.css";
 import image_url from "./Rectangle 2.5.png";
-
+import { Link } from "react-router-dom";
 class HomePage extends Component {
   state = {
-    services: { service: { id: 0 } },
-    loading: true
+    loading: false
   };
 
-  // componentDidMount() {
-  //   // axios
-  //   //   .get("/service")
-  //   //   .then(({ data }) => {
-  //   //     const services = data.map(service => {
-  //   //       return {
-  //   //         id: service.id,
-  //   //         image_url: service.image,
-  //   //         name: service.name
-  //   //       };
-  //   //     });
-  //   //     this.setState({
-  //   //       services,
-  //   //       loading: true
-  //   //     });
-  //   //   })
-  //   //   .catch(() => {
-  //   //     const { history } = this.props;
-  //   //     history.push("/error");
-  //   //   });
-  //   this.setState({
-  //     services: { service: { id: 0 } },
-  //     loading: true
-  //   });
-  // }
+  componentDidMount() {
+    axios
+      .get("/service")
+      .then(({ data }) => {
+        console.log("data", data);
+        const services = data.map(service => {
+          return {
+            id: service.id,
+            image_url: service.image,
+            name: service.name
+          };
+        });
+        this.setState({
+          services,
+          loading: true
+        });
+      })
+      .catch(() => {
+        const { history } = this.props;
+        history.push("/error");
+      });
+  }
 
-  // var Hello = React.createClass({
-  //     render: function() {
-  //         var names = ['Jake', 'Jon', 'Thruster'];
-  //         return (
-  //             <ul>
-  //                 {names.map(function(name, index){
-  //                     return <li key={ index }>{name}</li>;
-  //                   })}
-  //             </ul>
-  //         )
-  //     }
-  // });
-
-  redirectToEventPage = service => {
+  redirectToEventPage = hall => {
     const { history } = this.props;
-    history.push({ pathname: "/events", service });
+    history.push({ pathname: "/events", hall });
   };
 
   render() {
     if (this.state.loading === true) {
-      let halls1 = ["hhh", "me", "le"];
-      const lines = [];
+      let halls = this.state.services;
+
       return (
         <div>
           <div className="home-nav-bar">
@@ -79,7 +61,9 @@ class HomePage extends Component {
           </div>
           <div>
             <div className="all-halls">
-              {halls1.map((name, index) => {
+              {halls.map((hall, index) => {
+                const { id } = hall;
+
                 const imageStyle = {
                   backgroundImage: "url(" + { image_url } + ")"
                 };
@@ -87,21 +71,11 @@ class HomePage extends Component {
                   <div className="halls-row">
                     <div className="hall-container">
                       <div className="image-container" style={imageStyle} />
-                      <input
-                        type="button"
-                        value="Co-working Space 1"
-                        className="hallBtn"
-                        onClick={this.redirectToEventPage}
-                      />
-                    </div>
-                    <div className="hall-container">
-                      <div className="image-container" style={imageStyle} />
-                      <input
-                        type="button"
-                        value="Co-working Space 2"
-                        className="hallBtn"
-                        onClick={this.redirectToEventPage}
-                      />
+                      <button className="hallBtn">
+                        <Link to={`/events/${id}`} className="button-link">
+                          {hall.name}
+                        </Link>
+                      </button>
                     </div>
                   </div>
                 );
@@ -117,24 +91,3 @@ class HomePage extends Component {
 }
 
 export default HomePage;
-
-// <div className="all-halls">
-//   <div className="halls-row">
-//     <div className="hall-container">
-//       <div className="image-container" />
-//       <input
-//         type="button"
-//         value="Co-working Space 1"
-//         className="hallBtn"
-//       />
-//     </div>
-//     <div className="hall-container">
-//       <div className="image-container" />
-//       <input
-//         type="button"
-//         value="Co-working Space 2"
-//         className="hallBtn"
-//       />
-//     </div>
-//   </div>
-// </div>
