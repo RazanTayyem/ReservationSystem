@@ -1,7 +1,8 @@
 const { Event } = require('../database/models');
 
 exports.getEvents = ((req, res) => {
-  Event.findAll()
+  const { id } = req.params;
+  Event.findAll({ where: { serviceId: id }, raw: true })
     .then((events) => {
       if (!events || events.length === 0) return res.status(401).json({ message: 'no data exists' });
       return res.json(events);
