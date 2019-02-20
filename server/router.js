@@ -7,14 +7,17 @@ const { approveEvent } = require('./controllers/approveEvent.js');
 const { getEvent } = require('./controllers/getEvent.js');
 const { checkAuth } = require('./controllers/checkAuth.js');
 const { auth } = require('./middlewares/auth.js');
+const validate = require('./middlewares/validate.js');
+const { loginValidation } = require('./middlewares/validation.js');
+const { bookevent } = require('./middlewares/validation.js');
 
 const router = express.Router();
 
 router.get('/events', auth, getEvents);
 router.get('/checkauth', auth, checkAuth);
-router.post('/login', login);
+router.post('/login', validate(loginValidation), login);
 router.get('/logout', logout);
-router.post('/event', auth, postEvent);
+router.post('/event', validate(bookevent), auth, postEvent);
 router.get('/event/:id', auth, getEvent);
 router.put('/event/:id', auth, approveEvent);
 module.exports = router;

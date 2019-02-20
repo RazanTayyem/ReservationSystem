@@ -4,23 +4,18 @@ import Logobig from "./logobig.png";
 import axios from "axios";
 
 class Login extends Component {
-  state = {
-    input: ""
-  };
+  state = {};
 
-componentDidMount() {
-  const { history } = this.props;
-    axios
-      .get("/checkauth")
-      .then(({data}) => {
-        if(data.success){
-         history.push("/events");
-        }
-        else {
-          history.push("/login");
-        }
-          });
-      };
+  componentDidMount() {
+    const { history } = this.props;
+    axios.get("/checkauth").then(({ data }) => {
+      if (data.success) {
+        history.push("/events");
+      } else {
+        history.push("/login");
+      }
+    });
+  }
 
   handleChange = ({ target: { name, value } }) => {
     this.setState({ [name]: value });
