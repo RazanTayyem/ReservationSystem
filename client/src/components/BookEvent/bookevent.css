@@ -21,11 +21,13 @@ body {
   flex-direction: column;
   width: 50%;
   margin-left: 46px;
+  margin-bottom: 20px;
 }
 .column2 {
   flex-direction: column;
   width: 50%;
   margin-top: 68px;
+  margin-bottom: 20px;
 }
 .h2 {
   margin-left: 10px;
@@ -159,6 +161,7 @@ body {
 .equipment {
   margin-top: 30px;
   margin-left: 10px;
+  margin-bottom: 25px;
 }
 .equipmentcost {
   background-color: #fafcfc;
@@ -186,8 +189,8 @@ body {
   cursor: pointer;
   float: right;
   height: 40px;
-  margin-left: 140px;
-  margin-top: 80px;
+  margin-left: 220px;
+  margin-top: 50px;
   width: 100px;
 }
 .total {

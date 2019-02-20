@@ -8,8 +8,9 @@ import "./detailsevent.css";
 class DetailsEvent extends Component {
   state = {
     status: this.props.history.location.event.status,
-    loading: false
+    loading: false,
   };
+
 
   componentDidMount() {
     const id = this.props.history.location.event.id;
@@ -99,6 +100,8 @@ class DetailsEvent extends Component {
       let statusBoolean = this.state.status ? true : false;
       this.role = "admin" ? (statusApprove = true) : (statusApprove = false);
 
+      let totalcost = price + ((capacity)*((lunch_price) + (coffee_price))) + (equipment_price);
+
       return (
         <div className="page">
           <div>
@@ -168,6 +171,7 @@ class DetailsEvent extends Component {
                   <label className="title">Description:</label>
                   <div className="discrp">{equipment_note}</div>
                 </div>
+                <h2 className="h22">Total Cost: {totalcost}</h2>
                 {statusBoolean && (
                   <div className="button">
                     <input type="submit" value="Close" className="Approve" />
