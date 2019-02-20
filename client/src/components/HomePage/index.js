@@ -3,7 +3,6 @@ import Header from "../Header/header";
 import NavBar from "../NavBar";
 import axios from "axios";
 import "./HomePage.css";
-import image_url from "./Rectangle 2.5.png";
 import { Link } from "react-router-dom";
 class HomePage extends Component {
   state = {
@@ -14,7 +13,6 @@ class HomePage extends Component {
     axios
       .get("/service")
       .then(({ data }) => {
-        console.log("data", data);
         const services = data.map(service => {
           return {
             id: service.id,
@@ -65,10 +63,10 @@ class HomePage extends Component {
                 const { id } = hall;
 
                 const imageStyle = {
-                  backgroundImage: "url(" + { image_url } + ")"
+                  backgroundImage: "url(" + hall.image_url + ")"
                 };
                 return (
-                  <div className="halls-row">
+                  <div className="halls-row" key={index}>
                     <div className="hall-container">
                       <div className="image-container" style={imageStyle} />
                       <button className="hallBtn">
