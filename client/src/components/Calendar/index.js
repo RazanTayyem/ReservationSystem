@@ -7,16 +7,19 @@ import "./calendar.css";
 import moment from "moment";
 import axios from "axios";
 
-
 class BigCalendar extends Component {
   state = {
     loading: false
   };
   componentDidMount() {
+    const { id } = this.props.match.params;
+
     axios
-      .get("/events")
-      .then(data => {
-        const result = data.data;
+      .get(`/events/${id}`)
+      .then(({ data }) => {
+        const result = data.events;
+        const service = data.service;
+
         const events = result.map(event => {
           return {
             id: event.id,
@@ -28,10 +31,12 @@ class BigCalendar extends Component {
             capacity: event.capacity,
             note: event.note,
             orgName: event.org_name,
-            userId: event.eventId
+            userId: event.eventId,
+            serviceId: event.serviceId
           };
         });
         this.setState({
+          service,
           events,
           loading: true
         });
@@ -71,14 +76,14 @@ class BigCalendar extends Component {
           <NavBar {...this.props} />
         </div>
         <div className="both">
-          <SideBar />
+          <SideBar state={{ service: this.state.service }} />
           <div className="calendar-container">
             <Calendar
               selectable
               localizer={localizer}
               defaultDate={new Date()}
               defaultView={"week"}
-              views={['week','day']}
+              views={["week", "day"]}
               events={events}
               style={{ height: "100vh" }}
               onSelectEvent={this.detailsEvent}
