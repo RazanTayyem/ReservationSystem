@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import NavBar from "../NavBar";
 import SideBar from "../SideBar";
-import BackCursor from "../BackCursor";
 import axios from "axios";
 import "./detailsevent.css";
 
@@ -9,8 +8,15 @@ class DetailsEvent extends Component {
   state = {
     status: this.props.history.location.event.status,
     loading: false,
+    service: {
+      id: 1,
+      name: "room3",
+      image:
+        "https://files.gitter.im/YDRC-Rooms-Reservation/community/rVSp/Rectangle-2.5.png",
+      capacity: 40,
+      equipment: "Mic, Datashow"
+    }
   };
-
 
   componentDidMount() {
     const id = this.props.history.location.event.id;
@@ -100,7 +106,8 @@ class DetailsEvent extends Component {
       let statusBoolean = this.state.status ? true : false;
       this.role = "admin" ? (statusApprove = true) : (statusApprove = false);
 
-      let totalcost = price + ((capacity)*((lunch_price) + (coffee_price))) + (equipment_price);
+      let totalcost =
+        price + capacity * (lunch_price + coffee_price) + equipment_price;
 
       return (
         <div className="page">
@@ -108,7 +115,7 @@ class DetailsEvent extends Component {
             <NavBar {...this.props} />
           </div>
           <div className="both">
-            <SideBar />
+            <SideBar state={{ service: this.state.service }} />
             <div className="detailsEvent">
               <form onSubmit={this.handleSubmitForm}>
                 <h2 className="h22">General</h2>
