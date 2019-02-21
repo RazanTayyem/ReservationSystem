@@ -4,9 +4,7 @@ import Logobig from "./logobig.png";
 import axios from "axios";
 
 class Login extends Component {
-  state = {
-    input: ""
-  };
+  state = {};
 
   componentDidMount() {
     const { history } = this.props;
