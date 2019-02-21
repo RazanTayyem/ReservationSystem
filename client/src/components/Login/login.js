@@ -11,6 +11,7 @@ class Login extends Component {
     axios.get("/checkauth").then(({ data }) => {
       if (data.success) {
         history.push("/events");
+        history.push("/home");
       } else {
         history.push("/login");
       }
@@ -24,7 +25,7 @@ class Login extends Component {
   handleClick = () => {
     const { history } = this.props;
     axios.post("/login", this.state).then(data => {
-      history.push("/events");
+      history.push("/home");
     });
   };
   handleSubmitForm = event => {
