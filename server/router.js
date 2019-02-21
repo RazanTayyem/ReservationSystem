@@ -10,6 +10,7 @@ const { auth } = require('./middlewares/auth.js');
 const validate = require('./middlewares/validate.js');
 const { loginValidation } = require('./middlewares/validation.js');
 const { bookevent } = require('./middlewares/validation.js');
+const { getService } = require('./controllers/getService.js');
 
 const router = express.Router();
 
@@ -20,4 +21,5 @@ router.get('/logout', logout);
 router.post('/event', validate(bookevent), auth, postEvent);
 router.get('/event/:id', auth, getEvent);
 router.put('/event/:id', auth, approveEvent);
+router.get('/service', auth, getService);
 module.exports = router;
