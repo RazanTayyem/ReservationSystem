@@ -5,7 +5,8 @@ import axios from "axios";
 
 class Login extends Component {
   state = {
-    input: ""
+    user: {},
+    error: null
   };
 
   componentDidMount() {
@@ -20,14 +21,24 @@ class Login extends Component {
   }
 
   handleChange = ({ target: { name, value } }) => {
-    this.setState({ [name]: value });
+    this.setState({ user: { ...this.state.user, [name]: value } });
   };
 
   handleClick = () => {
+    const { username, password } = this.state.user;
     const { history } = this.props;
-    axios.post("/login", this.state).then(data => {
-      history.push("/home");
-    });
+    axios
+      .post("/login", username, password)
+      .then(({ data }) => {
+        if (data.success) {
+          history.push("/home");
+        } else {
+          this.setState({ error: data.error[0] });
+        }
+      })
+      .catch(error => {
+        this.setState({ error: error.response.data.error });
+      });
   };
   handleSubmitForm = event => {
     event.preventDefault();
@@ -65,6 +76,7 @@ class Login extends Component {
             <button className="btn1" onClick={this.handleClick}>
               Log in
             </button>
+            {this.state.error != null && <p> {this.state.error}</p>}
           </form>
         </div>
       </div>
