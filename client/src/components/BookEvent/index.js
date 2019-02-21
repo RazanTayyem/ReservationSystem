@@ -11,7 +11,15 @@ class BookEvent extends React.Component {
     input: "",
     start_date: this.props.history.location.event.start,
     end_date: this.props.history.location.event.end,
-    serviceId: this.props.history.location.event.serviceId
+    serviceId: this.props.history.location.event.serviceId,
+    service: {
+      id: 1,
+      name: "room3",
+      image:
+        "https://files.gitter.im/YDRC-Rooms-Reservation/community/rVSp/Rectangle-2.5.png",
+      capacity: 40,
+      equipment: "Mic, Datashow"
+    }
   };
 
   handleChange = ({ target: { name, value } }) => {
@@ -47,7 +55,7 @@ class BookEvent extends React.Component {
           <NavBar {...this.props} />
         </div>
         <div className="both">
-          <SideBar />
+          <SideBar state={{ service: this.state.service }} />
           <div className="BookEvent">
             <form onSubmit={this.handleSubmitForm}>
               <div className="container">
