@@ -31,11 +31,6 @@ class HomePage extends Component {
       });
   }
 
-  redirectToEventPage = hall => {
-    const { history } = this.props;
-    history.push({ pathname: "/events", hall });
-  };
-
   render() {
     if (this.state.loading === true) {
       let halls = this.state.services;
