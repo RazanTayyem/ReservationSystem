@@ -10,7 +10,6 @@ class Login extends Component {
     const { history } = this.props;
     axios.get("/checkauth").then(({ data }) => {
       if (data.success) {
-        history.push("/events");
         history.push("/home");
       } else {
         history.push("/login");
