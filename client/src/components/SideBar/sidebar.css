@@ -52,3 +52,8 @@
   display: flex;
   align-items: center;
 }
+
+.imageCard {
+  width: 240px;
+  height: 190px;
+}
