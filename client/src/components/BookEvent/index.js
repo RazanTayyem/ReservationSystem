@@ -9,12 +9,14 @@ import axios from "axios";
 
 class BookEvent extends React.Component {
   state = {
-    start_date: this.props.history.location.event.start,
-    end_date: this.props.history.location.event.end
+    // start_date: this.props.history.location.event.start,
+    // end_date: this.props.history.location.event.end,
+    event: {},
+    error: null
   };
 
   handleChange = ({ target: { name, value } }) => {
-    this.setState({ [name]: value });
+    this.setState({ event: { ...this.state.event, [name]: value } });
   };
 
   handleChangeStartDate = date => {
@@ -25,13 +27,24 @@ class BookEvent extends React.Component {
   };
   handleSubmitForm = event => {
     event.preventDefault();
+
+    const event1 = this.state.event;
+    event1.start_date = this.state.start_date;
+    event1.start_date = this.state.end_date;
     const { history } = this.props;
+
     axios
-      .post("/event", this.state)
-      .then(data => {
-        history.push("/events");
+      .post("/event", event1)
+      .then(({ data }) => {
+        if (data.success) {
+          history.push("/events");
+        } else {
+          this.setState({ error: data.err[0] });
+        }
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        this.setState({ error: error.response.data.error });
+      });
   };
 
   cancel = () => {
@@ -125,7 +138,7 @@ class BookEvent extends React.Component {
                     type="text"
                     name="org_name"
                     placeholder="Organization Name"
-                    value={this.state.orgName}
+                    value={this.state.org_name}
                     onChange={this.handleChange}
                     required
                   />
@@ -200,6 +213,9 @@ class BookEvent extends React.Component {
                       onClick={this.cancel}
                     />
                   </div>
+                  {this.state.error != null && (
+                    <p className="error-message"> {this.state.error}</p>
+                  )}
                 </div>
               </div>
             </form>

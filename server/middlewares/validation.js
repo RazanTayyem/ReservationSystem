@@ -2,9 +2,7 @@ const Joi = require('joi');
 
 const loginValidation = {
   username: Joi.string().required(),
-  password: Joi.string()
-    .min(6)
-    .required(),
+  password: Joi.string().required(),
 };
 
 const bookevent = {
@@ -15,7 +13,7 @@ const bookevent = {
   lunch_note: Joi.string().required(),
   coffee_note: Joi.string().required(),
   equipment_note: Joi.string().required(),
-  orgName: Joi.string().required(),
+  org_name: Joi.string().required(),
   end_date: Joi.date().required(),
   price: Joi.number().required(),
   lunch_price: Joi.number().required(),

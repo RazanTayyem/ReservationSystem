@@ -28,7 +28,7 @@ class Login extends Component {
     const { username, password } = this.state.user;
     const { history } = this.props;
     axios
-      .post("/login", username, password)
+      .post("/login", { username, password })
       .then(({ data }) => {
         if (data.success) {
           history.push("/home");
@@ -76,7 +76,9 @@ class Login extends Component {
             <button className="btn1" onClick={this.handleClick}>
               Log in
             </button>
-            {this.state.error != null && <p> {this.state.error}</p>}
+            {this.state.error != null && (
+              <p className="error-message"> {this.state.error}</p>
+            )}
           </form>
         </div>
       </div>
