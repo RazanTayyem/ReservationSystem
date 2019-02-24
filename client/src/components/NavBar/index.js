@@ -1,12 +1,10 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import "./NavBar.css";
 import logo from "./logo.png";
-import axios from 'axios';
+import axios from "axios";
 
-
-function handleSubmit(props){
-
+function handleSubmit(props) {
   const { history } = props;
   axios
     .get("/logout")
@@ -16,13 +14,18 @@ function handleSubmit(props){
     .catch(error => {
       history.push("/error");
     });
-};
+}
 
-const NavBar = (props) => (
+const NavBar = props => (
   <div className="nav-outer">
     <div className="nav-bar1">
-      <Link to="/events"><img className="logo" src={logo} alt="logo" /></Link>
-      <button className="logout-btn" onClick={()=>handleSubmit(props)}> log out </button>
+      <Link to="/home">
+        <img className="logo" src={logo} alt="logo" />
+      </Link>
+      <button className="logout-btn" onClick={() => handleSubmit(props)}>
+        {" "}
+        log out{" "}
+      </button>
     </div>
   </div>
 );
