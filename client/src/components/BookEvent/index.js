@@ -33,7 +33,6 @@ class BookEvent extends React.Component {
         history.push(`/events/${serviceId}`);
       })
       .catch(error => {
-        const { history } = this.props;
         history.push("/error");
       });
   };
