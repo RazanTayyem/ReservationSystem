@@ -49,7 +49,8 @@ class BigCalendar extends Component {
 
   bookEvent = event => {
     const { history } = this.props;
-    history.push({ pathname: "/bookevent", event });
+    const serviceId = this.state.service.id;
+    history.push({ pathname: `/bookevent/${serviceId}`, event });
   };
 
   detailsEvent = event => {
@@ -67,33 +68,35 @@ class BigCalendar extends Component {
   render() {
     const localizer = Calendar.momentLocalizer(moment);
     const { events, loading } = this.state;
-    if (!loading) {
-      return <h1>loading </h1>;
-    }
-    return (
-      <div className="page">
-        <div>
-          <NavBar {...this.props} />
-        </div>
-        <div className="both">
-          <SideBar state={{ service: this.state.service }} />
-          <div className="calendar-container">
-            <Calendar
-              selectable
-              localizer={localizer}
-              defaultDate={new Date()}
-              defaultView={"week"}
-              views={["week", "day"]}
-              events={events}
-              style={{ height: "100vh" }}
-              onSelectEvent={this.detailsEvent}
-              onSelectSlot={this.bookEvent}
-              eventPropGetter={this.pendingEventStyle}
-            />
+    if (loading) {
+      const { id } = this.state.service;
+      return (
+        <div className="page">
+          <div>
+            <NavBar {...this.props} />
+          </div>
+          <div className="both">
+            <SideBar id={id} />
+            <div className="calendar-container">
+              <Calendar
+                selectable
+                localizer={localizer}
+                defaultDate={new Date()}
+                defaultView={"week"}
+                views={["week", "day"]}
+                events={events}
+                style={{ height: "100vh" }}
+                onSelectEvent={this.detailsEvent}
+                onSelectSlot={this.bookEvent}
+                eventPropGetter={this.pendingEventStyle}
+              />
+            </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return <h1>loading </h1>;
+    }
   }
 }
 export default BigCalendar;
