@@ -56,7 +56,7 @@ class Login extends Component {
             />
             <input
               className="login-input"
-              type="text"
+              type="password"
               name="password"
               placeholder="password"
               value={this.state.password}
