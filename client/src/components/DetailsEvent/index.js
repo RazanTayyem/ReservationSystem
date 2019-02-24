@@ -6,7 +6,6 @@ import "./detailsevent.css";
 
 class DetailsEvent extends Component {
   state = {
-    status: this.props.history.location.event.status,
     loading: false
   };
 
@@ -21,6 +20,7 @@ class DetailsEvent extends Component {
           coffee_details: data.coffee,
           lunch_details: data.lunch,
           equipment_details: data.equipment,
+          status: data.event.status,
           loading: true
         });
       })
@@ -34,22 +34,18 @@ class DetailsEvent extends Component {
     event.preventDefault();
     const { history } = this.props;
     const { serviceId } = this.state.event_details;
-    if (this.state.status === 0) {
-      const { id } = this.props.history.location.event;
-      axios
-        .put(`/event/${id}`)
-        .then(data => {
-          history.push(`/events/${serviceId}`);
-        })
-        .catch(() => {
-          history.push("/error");
-        });
-    } else {
-      history.push(`/events/${serviceId}`);
-    }
+    const { id } = this.props.history.location.event;
+    axios
+      .put(`/event/${id}`)
+      .then(data => {
+        history.push(`/events/${serviceId}`);
+      })
+      .catch(() => {
+        history.push("/error");
+      });
   };
 
-  cancel = () => {
+  close = () => {
     const { serviceId } = this.state.event_details;
     const { history } = this.props;
     history.push(`/events/${serviceId}`);
@@ -95,9 +91,12 @@ class DetailsEvent extends Component {
         "-" +
         end_ddmmyyyy.getFullYear();
 
-      let statusApprove = false;
-      let statusBoolean = this.state.status ? true : false;
-      this.role = "admin" ? (statusApprove = true) : (statusApprove = false);
+      let needApprove = false;
+      if (this.state.role === "admin" && this.state.status === 0) {
+        needApprove = true;
+      } else {
+        needApprove = false;
+      }
 
       let totalcost =
         price + capacity * (lunch_price + coffee_price) + equipment_price;
@@ -179,23 +178,16 @@ class DetailsEvent extends Component {
                     <p className="h21">{totalcost}</p>
                   </div>
                 </div>
-                {statusBoolean && (
-                  <div className="button">
-                    <input type="submit" value="Close" className="Approve" />
-                  </div>
-                )}
                 <div className="button">
-                  {!statusBoolean && statusApprove && (
+                  {needApprove && (
                     <input type="submit" value="Approve" className="Approve" />
                   )}
-                  {!statusBoolean && statusApprove && (
-                    <input
-                      type="button"
-                      value="Cancel"
-                      className="Cancel"
-                      onClick={this.cancel}
-                    />
-                  )}
+                  <input
+                    type="button"
+                    value="Close"
+                    className="Cancel"
+                    onClick={this.close}
+                  />
                 </div>
               </form>
             </div>
