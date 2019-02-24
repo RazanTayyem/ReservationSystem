@@ -173,7 +173,12 @@ class DetailsEvent extends Component {
                   <label className="title">Description:</label>
                   <div className="discrp">{equipment_note}</div>
                 </div>
-                <h2 className="h22">Total Cost: {totalcost}</h2>
+                <div className="outer">
+                  <div className="total-cost">
+                    <p>Total Cost: </p>
+                    <p className="h21">{totalcost}</p>
+                  </div>
+                </div>
                 {statusBoolean && (
                   <div className="button">
                     <input type="submit" value="Close" className="Approve" />
