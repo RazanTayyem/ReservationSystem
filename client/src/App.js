@@ -16,7 +16,7 @@ class App extends Component {
         <React.Fragment>
           <Route exact path="/" component={Login} />
           <Route exact path="/events/:id" component={Calendar} />
-          <Route exact path="/bookevent" component={BookEvent} />
+          <Route exact path="/bookevent/:serviceId" component={BookEvent} />
           <Route exact path="/detailsevent" component={DetailsEvent} />
           <Route exact path="/error" component={Error} />
           <Route exact path="/home" component={HomePage} />

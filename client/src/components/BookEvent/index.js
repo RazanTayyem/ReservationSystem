@@ -1,7 +1,6 @@
 import React from "react";
 import NavBar from "../NavBar";
 import SideBar from "../SideBar";
-import BackCursor from "../BackCursor";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./bookevent.css";
@@ -32,12 +31,13 @@ class BookEvent extends React.Component {
     event1.start_date = this.state.start_date;
     event1.start_date = this.state.end_date;
     const { history } = this.props;
+    const { serviceId } = this.props.match.params;
 
     axios
-      .post("/event", event1)
+      .post(`/event/${serviceId}`, event1)
       .then(({ data }) => {
         if (data.success) {
-          history.push("/events");
+          history.push(`/events/${serviceId}`);
         } else {
           this.setState({ error: data.err[0] });
         }
@@ -48,17 +48,19 @@ class BookEvent extends React.Component {
   };
 
   cancel = () => {
+    const { serviceId } = this.props.match.params;
     const { history } = this.props;
-    history.push("/events");
+    history.push(`/events/${serviceId}`);
   };
   render() {
+    const id = this.props.match.params.serviceId;
     return (
       <div className="page">
         <div>
           <NavBar {...this.props} />
         </div>
         <div className="both">
-          <SideBar />
+          <SideBar id={id} />
           <div className="BookEvent">
             <form onSubmit={this.handleSubmitForm}>
               <div className="container">
@@ -92,6 +94,7 @@ class BookEvent extends React.Component {
                     placeholder="Note:"
                     value={this.state.note}
                     onChange={this.handleChange}
+                    required
                   />
                   <input
                     className="input"
@@ -110,6 +113,7 @@ class BookEvent extends React.Component {
                     placeholder="Description:"
                     value={this.state.lunch_note}
                     onChange={this.handleChange}
+                    required
                   />
 
                   <h2 className="coffee">Coffee</h2>
@@ -120,6 +124,7 @@ class BookEvent extends React.Component {
                     placeholder="Description:"
                     value={this.state.coffee_note}
                     onChange={this.handleChange}
+                    required
                   />
 
                   <h2 className="equipment">Equipment</h2>
@@ -130,6 +135,7 @@ class BookEvent extends React.Component {
                     placeholder="Description:"
                     value={this.state.equipment_note}
                     onChange={this.handleChange}
+                    required
                   />
                 </div>
                 <div className="column2">
@@ -160,6 +166,7 @@ class BookEvent extends React.Component {
                     placeholder="Cost:"
                     value={this.state.price}
                     onChange={this.handleChange}
+                    required
                   />
                   <input
                     className="lunchcost"
@@ -168,6 +175,7 @@ class BookEvent extends React.Component {
                     placeholder="Cost/Person:"
                     value={this.state.lunch_price}
                     onChange={this.handleChange}
+                    required
                   />
 
                   <input
@@ -177,6 +185,7 @@ class BookEvent extends React.Component {
                     placeholder="Time:"
                     value={this.state.lunch_time}
                     onChange={this.handleChange}
+                    required
                   />
 
                   <input
@@ -186,6 +195,7 @@ class BookEvent extends React.Component {
                     placeholder="Cost/Person:"
                     value={this.state.coffee_price}
                     onChange={this.handleChange}
+                    required
                   />
 
                   <input
@@ -195,6 +205,7 @@ class BookEvent extends React.Component {
                     placeholder="Time:"
                     value={this.state.coffee_time}
                     onChange={this.handleChange}
+                    required
                   />
                   <input
                     className="equipmentcost"
@@ -203,6 +214,7 @@ class BookEvent extends React.Component {
                     placeholder="Cost:"
                     value={this.state.equipment_price}
                     onChange={this.handleChange}
+                    required
                   />
                   <div className="total">
                     <input className="submitBtn" type="submit" value="Submit" />
