@@ -8,8 +8,8 @@ import axios from "axios";
 
 class BookEvent extends React.Component {
   state = {
-    // start_date: this.props.history.location.event.start,
-    // end_date: this.props.history.location.event.end,
+    start_date: this.props.history.location.event.start,
+    end_date: this.props.history.location.event.end,
     event: {},
     error: null
   };
@@ -29,7 +29,7 @@ class BookEvent extends React.Component {
 
     const event1 = this.state.event;
     event1.start_date = this.state.start_date;
-    event1.start_date = this.state.end_date;
+    event1.end_date = this.state.end_date;
     const { history } = this.props;
     const { serviceId } = this.props.match.params;
 
