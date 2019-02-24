@@ -35,7 +35,7 @@ class DetailsEvent extends Component {
     const { history } = this.props;
     const { serviceId } = this.state.event_details;
     if (this.state.status === 0) {
-      const id = this.props.history.location.event.id;
+      const { id } = this.props.history.location.event;
       axios
         .put(`/event/${id}`)
         .then(data => {
