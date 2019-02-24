@@ -33,7 +33,7 @@ class Login extends Component {
         if (data.success) {
           history.push("/home");
         } else {
-          this.setState({ error: data.error[0] });
+          this.setState({ error: data.error });
         }
       })
       .catch(error => {
