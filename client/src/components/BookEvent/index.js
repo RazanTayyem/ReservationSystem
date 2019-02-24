@@ -8,7 +8,6 @@ import axios from "axios";
 
 class BookEvent extends React.Component {
   state = {
-    input: "",
     start_date: this.props.history.location.event.start,
     end_date: this.props.history.location.event.end
   };
