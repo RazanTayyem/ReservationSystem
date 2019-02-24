@@ -7,15 +7,7 @@ import "./detailsevent.css";
 class DetailsEvent extends Component {
   state = {
     status: this.props.history.location.event.status,
-    loading: false,
-    service: {
-      id: 1,
-      name: "room3",
-      image:
-        "https://files.gitter.im/YDRC-Rooms-Reservation/community/rVSp/Rectangle-2.5.png",
-      capacity: 40,
-      equipment: "Mic, Datashow"
-    }
+    loading: false
   };
 
   componentDidMount() {
@@ -41,25 +33,26 @@ class DetailsEvent extends Component {
   handleSubmitForm = event => {
     event.preventDefault();
     const { history } = this.props;
-
+    const { serviceId } = this.state.event_details;
     if (this.state.status === 0) {
       const id = this.props.history.location.event.id;
       axios
         .put(`/event/${id}`)
         .then(data => {
-          history.push("/events");
+          history.push(`/events/${serviceId}`);
         })
         .catch(() => {
           history.push("/error");
         });
     } else {
-      history.push("/events");
+      history.push(`/events/${serviceId}`);
     }
   };
 
   cancel = () => {
+    const { serviceId } = this.state.event_details;
     const { history } = this.props;
-    history.push("/events");
+    history.push(`/events/${serviceId}`);
   };
 
   render() {
@@ -109,13 +102,15 @@ class DetailsEvent extends Component {
       let totalcost =
         price + capacity * (lunch_price + coffee_price) + equipment_price;
 
+      const id = this.state.event_details.serviceId;
+
       return (
         <div className="page">
           <div>
             <NavBar {...this.props} />
           </div>
           <div className="both">
-            <SideBar state={{ service: this.state.service }} />
+            <SideBar id={id} />
             <div className="detailsEvent">
               <form onSubmit={this.handleSubmitForm}>
                 <h2 className="h22">General</h2>

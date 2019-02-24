@@ -10,16 +10,7 @@ class BookEvent extends React.Component {
   state = {
     input: "",
     start_date: this.props.history.location.event.start,
-    end_date: this.props.history.location.event.end,
-    serviceId: this.props.history.location.event.serviceId,
-    service: {
-      id: 1,
-      name: "room3",
-      image:
-        "https://files.gitter.im/YDRC-Rooms-Reservation/community/rVSp/Rectangle-2.5.png",
-      capacity: 40,
-      equipment: "Mic, Datashow"
-    }
+    end_date: this.props.history.location.event.end
   };
 
   handleChange = ({ target: { name, value } }) => {
@@ -35,27 +26,32 @@ class BookEvent extends React.Component {
   handleSubmitForm = event => {
     event.preventDefault();
     const { history } = this.props;
-    const { serviceId } = this.state;
+    const { serviceId } = this.props.match.params;
     axios
       .post(`/event/${serviceId}`, this.state)
       .then(data => {
-        history.push("/events");
+        history.push(`/events/${serviceId}`);
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        const { history } = this.props;
+        history.push("/error");
+      });
   };
 
   cancel = () => {
+    const { serviceId } = this.props.match.params;
     const { history } = this.props;
-    history.push("/events");
+    history.push(`/events/${serviceId}`);
   };
   render() {
+    const id = this.props.match.params.serviceId;
     return (
       <div className="page">
         <div>
           <NavBar {...this.props} />
         </div>
         <div className="both">
-          <SideBar state={{ service: this.state.service }} />
+          <SideBar id={id} />
           <div className="BookEvent">
             <form onSubmit={this.handleSubmitForm}>
               <div className="container">
