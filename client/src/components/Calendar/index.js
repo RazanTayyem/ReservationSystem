@@ -7,16 +7,19 @@ import "./calendar.css";
 import moment from "moment";
 import axios from "axios";
 
-
 class BigCalendar extends Component {
   state = {
     loading: false
   };
   componentDidMount() {
+    const { id } = this.props.match.params;
+
     axios
-      .get("/events")
-      .then(data => {
-        const result = data.data;
+      .get(`/events/${id}`)
+      .then(({ data }) => {
+        const result = data.events;
+        const service = data.service;
+
         const events = result.map(event => {
           return {
             id: event.id,
@@ -28,10 +31,12 @@ class BigCalendar extends Component {
             capacity: event.capacity,
             note: event.note,
             orgName: event.org_name,
-            userId: event.eventId
+            userId: event.eventId,
+            serviceId: event.serviceId
           };
         });
         this.setState({
+          service,
           events,
           loading: true
         });
@@ -44,7 +49,8 @@ class BigCalendar extends Component {
 
   bookEvent = event => {
     const { history } = this.props;
-    history.push({ pathname: "/bookevent", event });
+    const serviceId = this.state.service.id;
+    history.push({ pathname: `/bookevent/${serviceId}`, event });
   };
 
   detailsEvent = event => {
@@ -62,33 +68,35 @@ class BigCalendar extends Component {
   render() {
     const localizer = Calendar.momentLocalizer(moment);
     const { events, loading } = this.state;
-    if (!loading) {
-      return <h1>loading </h1>;
-    }
-    return (
-      <div className="page">
-        <div>
-          <NavBar {...this.props} />
-        </div>
-        <div className="both">
-          <SideBar />
-          <div className="calendar-container">
-            <Calendar
-              selectable
-              localizer={localizer}
-              defaultDate={new Date()}
-              defaultView={"week"}
-              views={['week','day']}
-              events={events}
-              style={{ height: "100vh" }}
-              onSelectEvent={this.detailsEvent}
-              onSelectSlot={this.bookEvent}
-              eventPropGetter={this.pendingEventStyle}
-            />
+    if (loading) {
+      const { id } = this.state.service;
+      return (
+        <div className="page">
+          <div>
+            <NavBar {...this.props} />
+          </div>
+          <div className="both">
+            <SideBar id={id} />
+            <div className="calendar-container">
+              <Calendar
+                selectable
+                localizer={localizer}
+                defaultDate={new Date()}
+                defaultView={"week"}
+                views={["week", "day"]}
+                events={events}
+                style={{ height: "100vh" }}
+                onSelectEvent={this.detailsEvent}
+                onSelectSlot={this.bookEvent}
+                eventPropGetter={this.pendingEventStyle}
+              />
+            </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return <h1>loading </h1>;
+    }
   }
 }
 export default BigCalendar;
