@@ -31,3 +31,12 @@
   display: flex;
   justify-content: center;
 }
+
+.main-title {
+  display: flex;
+  align-items: center;
+}
+
+.website-title {
+  margin-left: 20px;
+}
