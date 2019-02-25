@@ -17,9 +17,9 @@ const bookevent = {
   end_date: Joi.date().required(),
   price: Joi.number().required(),
   lunch_price: Joi.number().required(),
-  lunch_time: Joi.number().required(),
+  lunch_time: Joi.string().required(),
   coffee_price: Joi.number().required(),
-  coffee_time: Joi.number().required(),
+  coffee_time: Joi.string().required(),
   equipment_price: Joi.number().required(),
 };
 module.exports = {
