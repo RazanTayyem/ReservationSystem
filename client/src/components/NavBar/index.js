@@ -19,12 +19,15 @@ function handleSubmit(props) {
 const NavBar = props => (
   <div className="nav-outer">
     <div className="nav-bar1">
-      <Link to="/home">
-        <img className="logo" src={logo} alt="logo" />
-      </Link>
+      <div className="main-title">
+        <Link to="/home">
+          <img className="logo" src={logo} alt="logo" />
+        </Link>
+        <h3 className="website-title">Reservation Sysetm</h3>
+      </div>
       <button className="logout-btn" onClick={() => handleSubmit(props)}>
         {" "}
-        log out{" "}
+        Log Out{" "}
       </button>
     </div>
   </div>

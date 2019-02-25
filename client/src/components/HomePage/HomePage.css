@@ -30,7 +30,6 @@
 
 .hallsBtn,
 .stageBtn {
-  font-family: Roboto;
   font-style: normal;
   font-weight: bold;
   line-height: normal;
@@ -106,7 +105,6 @@
 .button-link {
   color: #000;
   text-decoration: none;
-  font-family: Roboto;
   font-style: normal;
   font-weight: bold;
   line-height: normal;
