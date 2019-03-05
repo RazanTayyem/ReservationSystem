@@ -1,28 +1,66 @@
 # Reservation System
 A web app that enables the YDRC staff to coordinate the reservation process in their organization between all of them.
 
-# User Journey:
-You can sign up and log in using your username and password, select the service you want to check / reserve and fill the exact details you need for each reservation.
+# Breif Summary of key requirements / features
+  - User must be authrized to using the website.
+  - Services should be able to contain all facilites in YDRC.
+  - Each faclitiy should be able to present all events, and can booked a new event on it.
+  - Events should be able to see it all details.
+  - Events should be able to approve by admin. 
 
-# User Stories:
+# Features
+### Main functionality
+  - User Login by shared username and password. 
+  - Viewing all facilities in YDRC.
+  - Select Facility.
+    - Enable to see the events and its details.
+    - Book a new event by the calendar, and fill in details.
+  - Enable the admin to approve the pendding events. 
 
+# Key technologies
+  - React.js
+    - Create React App - https://reactjs.org/docs/create-a-new-react-app.html 
+    - React Router - https://www.npmjs.com/package/react-router
+    - React Big Calendar - https://www.npmjs.com/package/react-big-calendar
+  - Express.js
+  - Sequelize.js - http://docs.sequelizejs.com/ 
+  - Axios - https://www.npmjs.com/package/axios
 
-1. As a YDRC staff/admin I can log in by the shared username and password for both.
+# Architecture
+  - ### The website has two parts
+      - **Client** (React.js): view all facilities on YDRC, each facility view all it's events, and can choose an event to see its details, and can use the react big calendar book an event, and fill its details.  
+      - **Server** (Express.js, Sequelize.js): build the server and the database. Then, the routes that will add data (Login, book form) to the database or get data (services, events, event details, event status) from the database. Plus, ensure the user is authorized to use the website.
 
-2. As a YDRC staff/admin I can see YDRC halls.
+  - ### Code structure
+      - Client folder contains the components folder that contains the react components for the app.
+      - Server folder contains the server, and router that contains all app endpoints.
+      - Database folder contains all the models and relations of the app database.
+      - The website begins with server/app.js.
 
-3. As a YDRC staff/admin I can see all events that related to each hall. 
+# User Guide
+**Development Setup**
+- Make sure you have Node 8 and NPM>5 installed
+    ```sh
+     node --version; npm --version
+    ```
+- Clone the project, and cd to its directory.
+   ```sh
+     cd ReservationSystem
+  ```
+- Run npm i to install npm deps.
+    ```sh
+     npm i
+    ```
+- Run npm run dev to build and run the project.
+    ```sh
+     npm run dev
+    ```
+**Demo**
+https://ydrc-room-booker.herokuapp.com/
 
-4. As a YDRC staff/admin I can book an event
-
-5. As a YDRC admin I can see and approve all pending events
-
-8. As a YDRC staff/admin can log out of the account.
-
-
-
-
-
-
-
-
+# How to use Reservation System website
+ - Login with username and password.
+ - Select one of YDRC facilities.
+ - Using Calendar can book new events and fill it details.
+ - Can see the facility and it's events details. 
+ - As an admin user can approve the pending events. 
