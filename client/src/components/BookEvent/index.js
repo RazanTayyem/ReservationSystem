@@ -37,7 +37,7 @@ class BookEvent extends React.Component {
       .post(`/event/${serviceId}`, event1)
       .then(({ data }) => {
         if (data.success) {
-          history.push(`/events/${serviceId}`);
+          history.push(`/events-calendar/${serviceId}`);
         } else {
           this.setState({ error: data.err[0] });
         }
@@ -50,7 +50,7 @@ class BookEvent extends React.Component {
   cancel = () => {
     const { serviceId } = this.props.match.params;
     const { history } = this.props;
-    history.push(`/events/${serviceId}`);
+    history.push(`/events-calendar/${serviceId}`);
   };
   render() {
     const id = this.props.match.params.serviceId;

@@ -65,7 +65,10 @@ class HomePage extends Component {
                     <div className="hall-container">
                       <div className="image-container" style={imageStyle} />
                       <button className="hallBtn">
-                        <Link to={`/events/${id}`} className="button-link">
+                        <Link
+                          to={`/events-calendar/${id}`}
+                          className="button-link"
+                        >
                           {hall.name}
                         </Link>
                       </button>
