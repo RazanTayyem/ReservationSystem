@@ -1,7 +1,7 @@
 # Reservation System
 A web app that enables the YDRC staff to coordinate the reservation process in their organization between all of them.
 
-# Breif Summary of key requirements / features
+# Brief Summary of key requirements / features
   - User must be authrized to using the website.
   - Services should be able to contain all facilites in YDRC.
   - Each faclitiy should be able to present all events, and can booked a new event on it.
