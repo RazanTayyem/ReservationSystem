@@ -2,9 +2,9 @@
 A web app that enables the YDRC staff to coordinate the reservation process in their organization between all of them.
 
 # Brief Summary of key requirements / features
-  - User must be authrized to using the website.
-  - Services should be able to contain all facilites in YDRC.
-  - Each faclitiy should be able to present all events, and can booked a new event on it.
+   - User must be authorized to using the website.
+   - Services should be able to contain all facilities in YDRC.
+   - Each facility should be able to present all events, and can booked a new event on it.
   - Events should be able to see it all details.
   - Events should be able to approve by admin. 
 
@@ -15,7 +15,7 @@ A web app that enables the YDRC staff to coordinate the reservation process in t
   - Select Facility.
     - Enable to see the events and its details.
     - Book a new event by the calendar, and fill in details.
-  - Enable the admin to approve the pendding events. 
+  - Enable the admin to approve the pending events. 
 
 # Key technologies
   - React.js
