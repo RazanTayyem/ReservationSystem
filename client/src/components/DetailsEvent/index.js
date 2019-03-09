@@ -38,7 +38,7 @@ class DetailsEvent extends Component {
     axios
       .put(`/event/${id}`)
       .then(data => {
-        history.push(`/events/${serviceId}`);
+        history.push(`/events-calendar/${serviceId}`);
       })
       .catch(() => {
         history.push("/error");
@@ -48,7 +48,7 @@ class DetailsEvent extends Component {
   close = () => {
     const { serviceId } = this.state.event_details;
     const { history } = this.props;
-    history.push(`/events/${serviceId}`);
+    history.push(`/events-calendar/${serviceId}`);
   };
 
   render() {

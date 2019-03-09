@@ -23,7 +23,7 @@ const NavBar = props => (
         <Link to="/home">
           <img className="logo" src={logo} alt="logo" />
         </Link>
-        <h3 className="website-title">Reservation Sysetm</h3>
+        <h3 className="website-title">Reservation System</h3>
       </div>
       <button className="logout-btn" onClick={() => handleSubmit(props)}>
         {" "}
