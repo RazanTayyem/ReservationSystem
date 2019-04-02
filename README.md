@@ -56,7 +56,14 @@ A web app that enables the YDRC staff to coordinate the reservation process in t
      npm run dev
     ```
 **Demo**
-https://ydrc-room-booker.herokuapp.com/
+https://reservation-system-ydrc.herokuapp.com/
+
+**Login**
+
+ (Shared accounts for tests _username / password_)
+  
+  - To try this as admin _manager / 482106_
+  - To try this as normal user _staff / 482106_
 
 # How to use Reservation System website
  - Login with username and password.
