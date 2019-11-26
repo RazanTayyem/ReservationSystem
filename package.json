@@ -12,7 +12,7 @@
     "build": "cd client && npm run build",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "cd client && npm install && npm run build",
-    "db:query": "psql -U staff -d ydrc1 -a -f ./queries.sql"
+    "db:query": "psql -U ptuk1 -d razo0on -a -f ./queries.sql"
   },
   "repository": {
     "type": "git",
