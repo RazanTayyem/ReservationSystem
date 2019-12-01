@@ -16,14 +16,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FACK1/ReservationSystem.git"
+    "url": "git+https://github.com/RazanTayyem/ReservationSystem.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/FACK1/ReservationSystem/issues"
+    "url": "https://github.com/RazanTayyem/ReservationSystem/issues"
   },
-  "homepage": "https://github.com/FACK1/ReservationSystem#readme",
+  "homepage": "https://github.com/RazanTayyem/ReservationSystem#readme",
   "dependencies": {
     "bcrypt": "^3.0.4",
     "bcryptjs": "^2.4.3",
